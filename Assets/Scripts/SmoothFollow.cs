@@ -8,7 +8,7 @@ public class SmoothFollow : MonoBehaviour {
 
   Vector3 _velocity;
 
-  void Update () {
+  void FixedUpdate () {
     transform.position =
       Vector3.SmoothDamp(transform.position, target.position,
                          ref _velocity, smoothTime);
