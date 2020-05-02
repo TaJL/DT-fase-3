@@ -14,7 +14,7 @@ public class BillboardGrid : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         AlignAllChildren();
     }
@@ -36,4 +36,5 @@ public class BillboardGrid : MonoBehaviour
         Mathf.Round(Mathf.Round(position.z * grid_size.z) / grid_size.z)
         );
     }
+
 }

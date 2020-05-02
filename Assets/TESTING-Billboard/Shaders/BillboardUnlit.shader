@@ -1,4 +1,6 @@
-﻿/*Please do support www.bitshiftprogrammer.com by joining the facebook page : fb.com/BitshiftProgrammer
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+/*Please do support www.bitshiftprogrammer.com by joining the facebook page : fb.com/BitshiftProgrammer
 Legal Stuff:
 This code is free to use no restrictions but attribution would be appreciated.
 Any damage caused either partly or completly due to usage this stuff is not my responsibility*/
@@ -44,8 +46,14 @@ Shader "BitshiftProgrammer/Billboard"
          v2f vert(appdata v)
          {
             v2f o;
+            //step(0,_Time.y) * UnityObjectToClipPos(v.vertex ))+  ((1-step(-0,_Time.y)) *
 			float relativeScaler = (_KeepConstantScaling) ? distance(mul(unity_ObjectToWorld, v.vertex), _WorldSpaceCameraPos) : 1;
-            o.vertex = mul(UNITY_MATRIX_P, mul(UNITY_MATRIX_MV, float4(0.0, 0.0, 0.0, 1.0)) + float4(v.vertex.x, v.vertex.y, 0.0, 0.0) * relativeScaler * _Scaling);
+         if(_Time.y > 0){
+            o.vertex = ( mul(UNITY_MATRIX_P,  mul(UNITY_MATRIX_MV, float4(0.0, 0.0, 0.0, 1.0)) + float4(v.vertex.x, v.vertex.y, 0.0, 0.0) * relativeScaler * _Scaling));
+         }
+         else{
+            o.vertex = UnityObjectToClipPos(v.vertex );
+         }
             o.uv = v.uv;
             return o;
          }
@@ -53,6 +61,7 @@ Shader "BitshiftProgrammer/Billboard"
          float4 frag(v2f i) : COLOR
          {
             return tex2D(_MainTex, float2(i.uv));
+
          }
 
          ENDCG
