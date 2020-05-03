@@ -13,6 +13,7 @@ public class PlayerDodge : MonoBehaviour {
   public float dodgeDuration;
   public float stamina = 10;
   public GameObject dust;
+  public Transform visual;
 
   Coroutine _dodge;
 
@@ -34,6 +35,10 @@ public class PlayerDodge : MonoBehaviour {
     trail.emitting = true;
     control.enabled = false;
     motionTarget.position = initialMotionTarget.position;
+
+    if (motionTarget.localPosition == Vector3.zero) {
+      motionTarget.localPosition = visual.right;
+    }
 
     float elapsed = 0;
     float deltaDistance = this.distance;
@@ -67,7 +72,8 @@ public class PlayerDodge : MonoBehaviour {
       if ((oldPosition - player.transform.position).magnitude < (distance * 0.8f)) {
         GameObject created = Instantiate(dust);
         created.transform.forward = -direction + new Vector3(0,0.3f,0);
-        created.transform.position = hit.position + Vector3.up * 0.2f;
+        created.transform.position = hit.position + Vector3.up * 0.2f -
+          Vector3.forward * 0.5f;
       }
     }
 
