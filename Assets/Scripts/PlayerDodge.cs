@@ -12,6 +12,7 @@ public class PlayerDodge : MonoBehaviour {
   public float distance;
   public float dodgeDuration;
   public float stamina = 10;
+  public GameObject dust;
 
   Coroutine _dodge;
 
@@ -59,9 +60,15 @@ public class PlayerDodge : MonoBehaviour {
   void _SlideTo (Vector3 direction, float distance) {
     NavMeshHit hit;
     Vector3 target = player.transform.position + direction * distance;
+    Vector3 oldPosition = player.transform.position;
     if (NavMesh.Raycast(player.transform.position, target,
                         out hit, NavMesh.AllAreas)) {
       target = hit.position;
+      if ((oldPosition - player.transform.position).magnitude < (distance * 0.8f)) {
+        GameObject created = Instantiate(dust);
+        created.transform.forward = -direction + new Vector3(0,0.3f,0);
+        created.transform.position = hit.position + Vector3.up * 0.2f;
+      }
     }
 
     player.transform.position = target;

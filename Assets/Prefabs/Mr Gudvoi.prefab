@@ -228,6 +228,7 @@ MonoBehaviour:
   distance: 7
   dodgeDuration: 0.15
   stamina: 1.5
+  dust: {fileID: 8316148957608760422, guid: f83e8bfd396b7ee46829f7ab9cfbf39f, type: 3}
 --- !u!1 &1294559908
 GameObject:
   m_ObjectHideFlags: 0
