@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 8120447598912263105}
   - component: {fileID: 8120447598912263104}
   - component: {fileID: 8120447598912263106}
+  - component: {fileID: 291544974767699593}
   m_Layer: 0
   m_Name: Mr Gudvoi
   m_TagString: Player
@@ -133,6 +134,18 @@ MonoBehaviour:
   cameraTarget: {fileID: 8120447599411316372}
   maxCameraDistance: 2
   visuals: {fileID: 8120447599418393703}
+--- !u!114 &291544974767699593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120447598912263107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 176794a76a5430f459b79c7e383503bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8120447599411316373
 GameObject:
   m_ObjectHideFlags: 0
