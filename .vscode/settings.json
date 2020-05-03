@@ -1,0 +1,76 @@
+﻿{
+    "files.exclude":
+    {
+        "**/.DS_Store":true,
+        "**/.git":true,
+        "**/.gitignore":true,
+        "**/.gitmodules":true,
+        "**/*.booproj":true,
+        "**/*.pidb":true,
+        "**/*.suo":true,
+        "**/*.user":true,
+        "**/*.userprefs":true,
+        "**/*.unityproj":true,
+        "**/*.dll":true,
+        "**/*.exe":true,
+        "**/*.pdf":true,
+        "**/*.mid":true,
+        "**/*.midi":true,
+        "**/*.wav":true,
+        "**/*.gif":true,
+        "**/*.ico":true,
+        "**/*.jpg":true,
+        "**/*.jpeg":true,
+        "**/*.png":true,
+        "**/*.psd":true,
+        "**/*.tga":true,
+        "**/*.tif":true,
+        "**/*.tiff":true,
+        "**/*.3ds":true,
+        "**/*.3DS":true,
+        "**/*.fbx":true,
+        "**/*.FBX":true,
+        "**/*.lxo":true,
+        "**/*.LXO":true,
+        "**/*.ma":true,
+        "**/*.MA":true,
+        "**/*.obj":true,
+        "**/*.OBJ":true,
+        "**/*.asset":true,
+        "**/*.cubemap":true,
+        "**/*.flare":true,
+        "**/*.mat":true,
+        "**/*.meta":true,
+        "**/*.prefab":true,
+        "**/*.unity":true,
+        "build/":true,
+        "Build/":true,
+        "Library/":true,
+        "library/":true,
+        "obj/":true,
+        "Obj/":true,
+        "ProjectSettings/":true,
+        "temp/":true,
+        "Temp/":true
+    },
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": true,
+
+    // Controla el retraso en milisegundos de la aparición de sugerencias
+    "editor.quickSuggestionsDelay": 10,
+
+    // Activar pistas de parametros
+    "editor.parameterHints": true,
+
+    // Controlar si el editor debería cerrar automáticamente los parentesis despues de abrirlos    
+    "editor.autoClosingBrackets": "always",
+
+    // Controlar si el editor debería automaticamente formatear la linea despues de escribir
+    "editor.formatOnType": true,
+
+    // Controlar si las sugerencias deberían aparecer automaticamente al escribir caracteres de activación
+    "editor.suggestOnTriggerCharacters": true,
+
+    // Controla si las sugerencias deben ser aceptadas 'Enter' - además de 'Tab'. Ayuda a evitar la ambigüedad entre la inserción de nuevas líneas o la aceptación de sugerencias.
+    "editor.acceptSuggestionOnEnter": "on"
+}
