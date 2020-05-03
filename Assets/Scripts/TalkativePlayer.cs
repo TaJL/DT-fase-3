@@ -9,6 +9,7 @@ public class TalkativePlayer : MonoBehaviour {
     Npc found = c.GetComponentInParent<Npc>();
     if (found) {
       target = found;
+      target.IndicateActiveForTalk();
     }
   }
 
@@ -20,7 +21,7 @@ public class TalkativePlayer : MonoBehaviour {
   }
 
   void Update () {
-    if (Input.GetButtonDown("Fire1") && target) {
+    if (Input.GetButtonDown("Fire1") && target && !PlayerDecisions.isActive) {
       target.Speak();
     }
   }

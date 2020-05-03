@@ -4,9 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Npc : MonoBehaviour {
+  public bool WillTalk { get => decision == Decision.None; }
   public DialogueEntry[] message;
   public const float LECTURE_TIME_PER_WORD = 0.5f;
   public int current = 0;
+  [HideInInspector]
+  public Decision decision = Decision.None;
+  public GameObject actionIndicator;
 
   Coroutine _speak;
 
@@ -21,6 +25,13 @@ public class Npc : MonoBehaviour {
     _speak = null;
     NpcDialoguePlaceholder.Instance.SetVisibility(false);
     current = 0;
+    PlayerDecisions.Instance.Hide();
+    PlayerDecisions.onDecisionMade -= HandleDecision;
+    actionIndicator.SetActive(false);
+  }
+
+  public void IndicateActiveForTalk () {
+    actionIndicator.SetActive(WillTalk);
   }
 
   IEnumerator _Speak () {
@@ -30,10 +41,32 @@ public class Npc : MonoBehaviour {
       yield break;
     }
 
+    if (!WillTalk) yield break;
+
     if (current == 0) {
       NpcDialoguePlaceholder.Instance.SetVisibility(true);
     }
 
+    yield return StartCoroutine(_DisplayMessageLetterByLetter());
+
+    NpcDialoguePlaceholder.Instance.dialogue.text = message[current].message;
+    NpcDialoguePlaceholder.Instance.SetTalking(false);
+
+    current++;
+    _speak = null;
+    if (current >= message.Length) {
+      PlayerDecisions.Instance.Activate();
+      PlayerDecisions.onDecisionMade += HandleDecision;
+    }
+  }
+
+  public void HandleDecision (Decision decision) {
+    PlayerDecisions.onDecisionMade -= HandleDecision;
+    this.decision = decision;
+    Speak();
+  }
+
+  IEnumerator _DisplayMessageLetterByLetter () {
     bool jump = false;
     Text t = NpcDialoguePlaceholder.Instance.dialogue;
     t.text = "";
@@ -54,11 +87,5 @@ public class Npc : MonoBehaviour {
       t.text += message[current].message[i];
       elapsed += Time.deltaTime;
     }
-
-    t.text = message[current].message;
-    NpcDialoguePlaceholder.Instance.SetTalking(false);
-
-    current++;
-    _speak = null;
   }
 }

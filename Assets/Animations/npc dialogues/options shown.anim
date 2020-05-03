@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: hidden
+  m_Name: options shown
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -22,21 +22,21 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
-        inSlope: -2319.9631
-        outSlope: -2319.9631
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.11968085
-      - serializedVersion: 3
-        time: 0.375
-        value: 366
+        value: -354
         inSlope: 0
         outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.25
+        value: 0
+        inSlope: -3824.8276
+        outSlope: -3824.8276
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.09574467
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -66,7 +66,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.375
+    m_StopTime: 0.25
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -87,21 +87,21 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
-        inSlope: -2319.9631
-        outSlope: -2319.9631
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.11968085
-      - serializedVersion: 3
-        time: 0.375
-        value: 366
+        value: -354
         inSlope: 0
         outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.25
+        value: 0
+        inSlope: -3824.8276
+        outSlope: -3824.8276
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.09574467
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
