@@ -8,15 +8,20 @@ namespace Game {
 public class BasicEnemy : MonoBehaviour {
 	
 	public virtual StateMachine stateMachine = new StateMachine();
-	public virtual Player player;
-    public 
-
-	// -- //
+	public virtual PlayerControl player;
+    public virtual int hp;
+    public virtual bool vulnerable;
 	
-	void Awake() {
-		stateMachine.AddState("Idle", fixedUpdate: Idle_FixedUpdate)
-			.To("Jumping", () => Input.GetKeyDown(KeyCode.Space), enter: Jumping_Enter, update: Jumping_Update, exit: Jumping_Exit)
-		.To("Idle", () => Input.GetKeyUp(KeyCode.Space))
+    public event EnterStateIdle;
+    public event EnterStateChase;
+    public event EnterStateHitted;
+    public event EnterStateDeath;
+
+	void Awake()
+    {
+		stateMachine.AddState("Idle", enter: Idle_Enter, update: Idle_Update, exit: Idle_Exit)
+			.To("Chase", () => EnterStateChase, enter: Chase_Enter, update: Chase_Update, exit: Chase_Exit)
+		.To("Idle", () => EnterStateChasing)
 			.To("Crouching", () => Input.GetKey(KeyCode.DownArrow), enter: Crouching_Enter, update: Crouching_Update, exit: Crouching_Exit)
 		.To("Idle", () => !Input.GetKey(KeyCode.DownArrow))
 		.AnyState("Shooting", () => Input.GetKeyDown(KeyCode.A), enter: Enter_Shooting, update: Update_Shooting, exit: Exit_Shooting).Exit(() => Input.GetKeyUp(KeyCode.A))
@@ -47,48 +52,6 @@ public class BasicEnemy : MonoBehaviour {
 	
 	void Idle_Exit() {
 		Debug.Log("Exit from Idle");
-	}
-	
-	// -- //
-	
-	void Jumping_Enter() {
-		Debug.Log("JUMP !");
-	}
-	
-	void Jumping_Update() {
-		Debug.Log("Lol I'm in the air :]");
-	}
-	
-	void Jumping_Exit() {
-		Debug.Log("On the ground");
-	}
-	
-	// -- //
-	
-	void Crouching_Enter() {
-		Debug.Log("Chilling on the ground");
-	}
-	
-	void Crouching_Update() {
-		Debug.Log("Still chilling");
-	}
-	
-	void Crouching_Exit() {
-		Debug.Log("Enough chill");
-	}
-	
-	// -- //
-	
-	void Enter_Shooting() {
-		Debug.Log("Enter Shooting");
-	}
-	
-	void Update_Shooting() {
-		Debug.Log("Update Shooting");
-	}
-	
-	void Exit_Shooting() {
-		Debug.Log("Exit Shooting");
 	}
 	
 }
