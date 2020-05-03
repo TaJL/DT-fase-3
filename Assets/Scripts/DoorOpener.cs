@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class DoorOpener : MonoBehaviour {
   void Update () {
-    if (Input.GetButtonDown("Fire1")) {
+    if (Input.GetButtonDown("Fire1") && Events.OnBark != null) {
       Events.OnBark(transform.position);
     }
   }

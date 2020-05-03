@@ -750,56 +750,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d95d7de022b2706479e7e8a2606b3673, type: 3}
---- !u!1 &1294559908
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1294559909}
-  - component: {fileID: 1294559910}
-  m_Layer: 0
-  m_Name: attack aoe
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1294559909
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294559908}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.89, y: 0, z: 0.4}
-  m_LocalScale: {x: 2.1633189, y: 1.5452279, z: 2.1633189}
-  m_Children: []
-  m_Father: {fileID: 1516012063}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1294559910
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294559908}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1516012063 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8120447598912263105, guid: 39e2ee73e9a4ace4995b44e6d58fd2b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 8120447599246520775}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1576842476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2706790727220717145, guid: f377107f0c2edd043ba5c1acd0cb6829,
@@ -1598,11 +1548,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1158566254026548044, guid: 39e2ee73e9a4ace4995b44e6d58fd2b2,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8120447598912263105, guid: 39e2ee73e9a4ace4995b44e6d58fd2b2,
         type: 3}
       propertyPath: m_LocalPosition.x

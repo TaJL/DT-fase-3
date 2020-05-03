@@ -13,6 +13,9 @@ public class Npc : MonoBehaviour {
   [HideInInspector]
   public Decision decision = Decision.None;
   public GameObject actionIndicator;
+  public Decision requiredDecision;
+
+  public AttackableNpc attackable;
 
   Coroutine _speak;
 
@@ -63,6 +66,12 @@ public class Npc : MonoBehaviour {
   }
 
   public void HandleDecision (Decision decision, Npc npc) {
+    if (requiredDecision != decision) {
+      attackable.gameObject.SetActive(true);
+    } else {
+      if (Events.OnBossDeath != null) Events.OnBossDeath();
+    }
+    actionIndicator.SetActive(false);
     PlayerDecisions.onDecisionMade -= HandleDecision;
     this.decision = decision;
     if (onDecisionGiven != null) onDecisionGiven(decision);
