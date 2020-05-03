@@ -12,10 +12,10 @@ public class Door : MonoBehaviour
     }
 
     [SerializeField, Range(0.1f, 10f)]
-    private float area_range;
+    private float area_range = 0;
 
     [SerializeField]
-    private AnimationCurve curve;
+    private AnimationCurve curve = null;
     [SerializeField]
     private float animation_time = 0.5f;
     private bool opened = false;
