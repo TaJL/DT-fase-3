@@ -8,6 +8,8 @@ public class PlayerAttack : AoeDetector<Attackable> {
   public Transform pushBackSource;
 
   void Update () {
+    if (PlayerDecisions.isActive || NpcDialoguePlaceholder.Instance.IsVisible) return;
+
     if (Input.GetButtonDown("Fire1") && target) {
       target.GetDamage(damage, pushBackSource.position, pushBackStrength);
     }

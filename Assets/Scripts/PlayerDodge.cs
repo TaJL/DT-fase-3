@@ -18,6 +18,8 @@ public class PlayerDodge : MonoBehaviour {
   Coroutine _dodge;
 
   void FixedUpdate () {
+    if (PlayerDecisions.isActive || NpcDialoguePlaceholder.Instance.IsVisible) return;
+
     if (Input.GetButtonDown("Fire2") && stamina > 0) {
       StopDodging();
       _dodge = StartCoroutine(_Dodge());
@@ -71,7 +73,7 @@ public class PlayerDodge : MonoBehaviour {
       target = hit.position;
       if ((oldPosition - player.transform.position).magnitude < (distance * 0.8f)) {
         GameObject created = Instantiate(dust);
-        created.transform.forward = -direction + new Vector3(0,0.3f,0);
+        created.transform.forward = -direction + new Vector3(0,0.7f,0);
         created.transform.position = hit.position + Vector3.up * 0.2f -
           Vector3.forward * 0.5f;
       }

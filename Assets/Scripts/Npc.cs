@@ -78,7 +78,7 @@ public class Npc : MonoBehaviour {
     if (requiredDecision != decision) {
       attackable.gameObject.SetActive(true);
     } else {
-      if (Events.OnBossDeath != null) Events.OnBossDeath();
+      if (Events.OnBossDeath != null) Events.OnBossDeath(this);
     }
     actionIndicator.SetActive(false);
     PlayerDecisions.onDecisionMade -= HandleDecision;
