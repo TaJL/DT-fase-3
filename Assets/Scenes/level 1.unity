@@ -252,12 +252,41 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8120447599246520775}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1321187012 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4689867936064416411, guid: bb4a06244802fb44c862c5dd316472f7,
-    type: 3}
-  m_PrefabInstance: {fileID: 7948998259712434423}
+--- !u!1 &1531373859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1531373860}
+  m_Layer: 5
+  m_Name: decissions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1531373860
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531373859}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1875058046}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1576842476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2706790727220717145, guid: f377107f0c2edd043ba5c1acd0cb6829,
@@ -527,6 +556,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 7948998259712434424}
+  - {fileID: 1531373860}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -587,17 +617,17 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1508303269137507692, guid: d95d7de022b2706479e7e8a2606b3673,
         type: 3}
-      propertyPath: message.Array.size
-      value: 2
+      propertyPath: message.Array.data[0].message
+      value: hi! i am an npc
       objectReference: {fileID: 0}
     - target: {fileID: 1508303269137507692, guid: d95d7de022b2706479e7e8a2606b3673,
         type: 3}
-      propertyPath: message.Array.data[0]
-      value: hi! i am an NPC
+      propertyPath: message.Array.data[1].emotion
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1508303269137507692, guid: d95d7de022b2706479e7e8a2606b3673,
         type: 3}
-      propertyPath: message.Array.data[1]
+      propertyPath: message.Array.data[1].message
       value: i don't do anything but exist
       objectReference: {fileID: 0}
     - target: {fileID: 1508303269137507694, guid: d95d7de022b2706479e7e8a2606b3673,
@@ -743,11 +773,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1875058046}
     m_Modifications:
-    - target: {fileID: 5980258442638046783, guid: bb4a06244802fb44c862c5dd316472f7,
-        type: 3}
-      propertyPath: placeholder
-      value: 
-      objectReference: {fileID: 1321187012}
     - target: {fileID: 5980258442672524304, guid: bb4a06244802fb44c862c5dd316472f7,
         type: 3}
       propertyPath: m_LocalPosition.x

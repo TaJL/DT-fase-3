@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Npc : MonoBehaviour {
-  public string[] message;
+  public DialogueEntry[] message;
   public const float LECTURE_TIME_PER_WORD = 0.5f;
   public int current = 0;
 
@@ -41,7 +41,7 @@ public class Npc : MonoBehaviour {
     float elapsed = 0;
 
     for (int i=0;
-         i<message[current].Length && !jump;
+         i<message[current].message.Length && !jump;
          i++, jump = Input.GetButtonDown("Fire1")) {
 
       float x = 0;
@@ -51,11 +51,11 @@ public class Npc : MonoBehaviour {
         if (Input.GetButtonDown("Fire1")) break;
       }
 
-      t.text += message[current][i];
+      t.text += message[current].message[i];
       elapsed += Time.deltaTime;
     }
 
-    t.text = message[current];
+    t.text = message[current].message;
     NpcDialoguePlaceholder.Instance.SetTalking(false);
 
     current++;
