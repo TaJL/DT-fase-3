@@ -142,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1508303267892392166}
   - component: {fileID: 1508303267892392167}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dialogue aoe
   m_TagString: Untagged
   m_Icon: {fileID: 0}

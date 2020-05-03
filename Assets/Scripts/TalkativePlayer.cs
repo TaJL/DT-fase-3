@@ -2,22 +2,13 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class TalkativePlayer : NonPersistantSingleton<TalkativePlayer> {
-  public Npc target;
-
-  void OnTriggerStay (Collider c) {
-    Npc found = c.GetComponentInParent<Npc>();
-    if (found) {
-      target = found;
-      target.IndicateActiveForTalk();
-    }
+public class TalkativePlayer : AoeDetector<Npc> {
+  public override void Undetect (Npc old) {
+    old.Stop();
   }
 
-  void OnTriggerExit (Collider c) {
-    if (c.GetComponentInParent<Npc>() == target) {
-      if (target != null) target.Stop();
-      target = null;
-    }
+  public override void Detect () {
+    target.IndicateActiveForTalk();
   }
 
   void Update () {

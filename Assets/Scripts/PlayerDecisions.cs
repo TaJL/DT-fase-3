@@ -43,6 +43,6 @@ public class PlayerDecisions : NonPersistantSingleton<PlayerDecisions> {
 
     Hide();
     if (onDecisionMade != null)
-      onDecisionMade(decision, TalkativePlayer.Instance.target);
+      onDecisionMade(decision, Player.Instance.dialogues.target);
   }
 }
