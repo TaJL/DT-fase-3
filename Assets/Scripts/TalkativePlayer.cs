@@ -14,13 +14,14 @@ public class TalkativePlayer : MonoBehaviour {
 
   void OnTriggerExit (Collider c) {
     if (c.GetComponentInParent<Npc>() == target) {
+      if (target != null) target.Stop();
       target = null;
     }
   }
 
   void Update () {
     if (Input.GetButtonDown("Fire1") && target) {
-      target.Say();
+      target.Speak();
     }
   }
 }

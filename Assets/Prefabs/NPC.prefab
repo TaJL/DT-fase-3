@@ -171,7 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e6085cdae1a2c4289de993918869b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: hola yo soy un NPC
+  message:
+  - hi! i am an NPC
+  - i don't do anything but exist
+  current: 0
 --- !u!54 &1508303269137507693
 Rigidbody:
   m_ObjectHideFlags: 0
