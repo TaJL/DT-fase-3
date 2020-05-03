@@ -62,7 +62,7 @@ public class Npc : MonoBehaviour {
     }
   }
 
-  public void HandleDecision (Decision decision) {
+  public void HandleDecision (Decision decision, Npc npc) {
     PlayerDecisions.onDecisionMade -= HandleDecision;
     this.decision = decision;
     if (onDecisionGiven != null) onDecisionGiven(decision);

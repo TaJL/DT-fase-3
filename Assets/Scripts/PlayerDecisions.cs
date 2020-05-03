@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerDecisions : NonPersistantSingleton<PlayerDecisions> {
-  public static event System.Action<Decision> onDecisionMade;
+  public static event System.Action<Decision, Npc> onDecisionMade;
   public static bool isActive = false;
   public Animator animator;
 
@@ -42,6 +42,7 @@ public class PlayerDecisions : NonPersistantSingleton<PlayerDecisions> {
     yield return new WaitForSeconds(0.2f);
 
     Hide();
-    if (onDecisionMade != null) onDecisionMade(decision);
+    if (onDecisionMade != null)
+      onDecisionMade(decision, TalkativePlayer.Instance.target);
   }
 }

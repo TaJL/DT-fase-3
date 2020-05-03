@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class TalkativePlayer : MonoBehaviour {
+public class TalkativePlayer : NonPersistantSingleton<TalkativePlayer> {
   public Npc target;
 
   void OnTriggerStay (Collider c) {
