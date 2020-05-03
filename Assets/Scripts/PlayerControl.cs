@@ -11,6 +11,10 @@ public class PlayerControl : MonoBehaviour {
 
   Vector3 direction;
 
+  void Awake () {
+    controlPov = Camera.main.GetComponentInParent<FollowingCamera>().controlPov;
+  }
+
   void FixedUpdate () {
     direction = (controlPov.right * Input.GetAxisRaw("Horizontal") +
                  controlPov.forward * Input.GetAxisRaw("Vertical"));

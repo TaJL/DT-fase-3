@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothTime: 0.2
   target: {fileID: 0}
+  controlPov: {fileID: 2923925424646730602}
 --- !u!1 &2923925424646730601
 GameObject:
   m_ObjectHideFlags: 0

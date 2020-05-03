@@ -11,11 +11,16 @@ public class Door : MonoBehaviour
         BOSS_DEFEATH
     }
 
+    [SerializeField]
+    private Interaction interaction_required;
+    [SerializeField]
+    private Npc required_boss;
+
     [SerializeField, Range(0.1f, 10f)]
-    private float area_range;
+    private float area_range = 0;
 
     [SerializeField]
-    private AnimationCurve curve;
+    private AnimationCurve curve = null;
     [SerializeField]
     private float animation_time = 0.5f;
     private bool opened = false;
@@ -39,8 +44,11 @@ public class Door : MonoBehaviour
     void Start()
     {
         //Bindings
-        Events.OnBark += CheckBark;
-        Events.OnBossDeath += Open;
+        if (interaction_required == Interaction.BARK) {
+            Events.OnBark += CheckBark;
+        } else {
+          Events.OnBossDeath += HandleBossDefeat;
+        }
     }
 
     public void CheckBark(Vector3 position)
@@ -70,6 +78,11 @@ public class Door : MonoBehaviour
             yield return null;
         }
     }
+
+    public void HandleBossDefeat (Npc boss) {
+      if (!required_boss || boss == required_boss) Open();
+    }
+
     public void Open()
     {
         StopAllCoroutines();

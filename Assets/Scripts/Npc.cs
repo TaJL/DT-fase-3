@@ -5,7 +5,10 @@ using System.Collections.Generic;
 
 public class Npc : MonoBehaviour {
   public event System.Action<Decision> onDecisionGiven;
+  public static int counter = 0;
 
+  public bool HasBeenRead { get => PlayerPrefs.HasKey("npc" + _id); }
+  public int FirstMessage { get => HasBeenRead? message.Length-1: 0; }
   public bool WillTalk { get => decision == Decision.None; }
   public DialogueEntry[] message;
   public const float LECTURE_TIME_PER_WORD = 0.5f;
@@ -13,8 +16,17 @@ public class Npc : MonoBehaviour {
   [HideInInspector]
   public Decision decision = Decision.None;
   public GameObject actionIndicator;
+  public Decision requiredDecision;
+
+  public AttackableNpc attackable;
 
   Coroutine _speak;
+  int _id = -1;
+
+  void OnEnable () {
+    _id = ++counter;
+    current = FirstMessage;
+  }
 
   public void Speak () {
     if (_speak == null) {
@@ -26,7 +38,7 @@ public class Npc : MonoBehaviour {
     StopAllCoroutines();
     _speak = null;
     NpcDialoguePlaceholder.Instance.SetVisibility(false);
-    current = 0;
+    current = FirstMessage;
     PlayerDecisions.Instance.Hide();
     PlayerDecisions.onDecisionMade -= HandleDecision;
     actionIndicator.SetActive(false);
@@ -39,13 +51,13 @@ public class Npc : MonoBehaviour {
   IEnumerator _Speak () {
     if (NpcDialoguePlaceholder.Instance.IsVisible && current >= message.Length) {
       NpcDialoguePlaceholder.Instance.SetVisibility(false);
-      current = 0;
+      current = FirstMessage;
       yield break;
     }
 
     if (!WillTalk) yield break;
 
-    if (current == 0) {
+    if (current == FirstMessage) {
       NpcDialoguePlaceholder.Instance.SetVisibility(true);
     }
 
@@ -63,10 +75,17 @@ public class Npc : MonoBehaviour {
   }
 
   public void HandleDecision (Decision decision, Npc npc) {
+    if (requiredDecision != decision) {
+      attackable.gameObject.SetActive(true);
+    } else {
+      if (Events.OnBossDeath != null) Events.OnBossDeath(this);
+    }
+    actionIndicator.SetActive(false);
     PlayerDecisions.onDecisionMade -= HandleDecision;
     this.decision = decision;
     if (onDecisionGiven != null) onDecisionGiven(decision);
     Speak();
+    PlayerPrefs.SetString("npc" + _id, "DONE");
   }
 
   IEnumerator _DisplayMessageLetterByLetter () {
