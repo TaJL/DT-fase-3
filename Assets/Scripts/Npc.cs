@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Npc : MonoBehaviour {
+  public event System.Action<Decision> onDecisionGiven;
+
   public bool WillTalk { get => decision == Decision.None; }
   public DialogueEntry[] message;
   public const float LECTURE_TIME_PER_WORD = 0.5f;
@@ -63,6 +65,7 @@ public class Npc : MonoBehaviour {
   public void HandleDecision (Decision decision) {
     PlayerDecisions.onDecisionMade -= HandleDecision;
     this.decision = decision;
+    if (onDecisionGiven != null) onDecisionGiven(decision);
     Speak();
   }
 
