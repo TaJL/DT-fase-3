@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &733187481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 733187482}
+  - component: {fileID: 733187484}
+  - component: {fileID: 733187483}
+  m_Layer: 11
+  m_Name: aoe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &733187482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733187481}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.0702116, y: 0, z: 0.70607513}
+  m_LocalScale: {x: 2.8243005, y: 2.8243003, z: 2.8243005}
+  m_Children: []
+  m_Father: {fileID: 1508303267119615425}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &733187484
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733187481}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1.74}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &733187483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733187481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5444102d156913342acfd927907e04d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!1 &1287613078
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +252,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.35406998, y: 0.35407, z: 0.35406998}
-  m_Children: []
+  m_Children:
+  - {fileID: 733187482}
   m_Father: {fileID: 1508303269137507695}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -520,10 +579,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   close: {fileID: 1297050549}
   mid: {fileID: 1287613080}
+  agent: {fileID: 3039891951468151463}
   ranged: {fileID: 194709429}
   melee: {fileID: 194709428}
   meleeCounter: 0
   rangedCounter: 0
+  visuals: {fileID: 1508303267119615430}
 --- !u!114 &194709428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,6 +606,7 @@ MonoBehaviour:
   visual: {fileID: 1508303267119615430}
   chargingTime: 0.2
   recoveryTime: 1
+  damager: {fileID: 733187483}
 --- !u!114 &194709429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,7 +646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6371756103932132438
 Transform:
   m_ObjectHideFlags: 0
@@ -627,3 +689,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 10
   body: {fileID: 1508303269137507693}
+  isDead: 0

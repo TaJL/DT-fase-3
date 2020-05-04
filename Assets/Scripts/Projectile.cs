@@ -7,12 +7,20 @@ public class Projectile : MonoBehaviour {
   public GameObject dustPrototype;
   public float speed = 10;
   public float rotationSpeed = 360;
+  public Attackable caster;
+  public int damage = 1;
+
+  void OnTriggerEnter (Collider c) {
+    Attackable attackable = c.GetComponentInParent<Attackable>();
+    if (attackable && attackable != caster) {
+      attackable.GetDamage(damage, transform.position, 0);
+    }
+  }
 
   void OnCollisionEnter (Collision c) {
     GameObject dust = Instantiate(dustPrototype);
     dust.transform.position = c.GetContact(0).point;
     dust.transform.forward = c.GetContact(0).normal;
-    Debug.Log(c.collider, c.collider);
     Destroy(gameObject);
   }
 

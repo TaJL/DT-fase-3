@@ -16,7 +16,7 @@ public class FleeAndShoot : AggressiveBehaviour {
     StartCoroutine(_ArriveAndShoot());
   }
 
-  void OnDisable () {
+  public override void CustomOnDisable () {
     agent.ResetPath();
     StopAllCoroutines();
   }
@@ -24,7 +24,7 @@ public class FleeAndShoot : AggressiveBehaviour {
   IEnumerator _ArriveAndShoot () {
     while (true) {
       agent.SetDestination(target.transform.position);
-      yield return new WaitForSeconds(0.1f);
+      yield return new WaitForSeconds(0.05f);
       agent.ResetPath();
       ChangeSource();
       yield return StartCoroutine(_WaitForArrival());
@@ -32,10 +32,14 @@ public class FleeAndShoot : AggressiveBehaviour {
 
       int shots = (int) Mathf.Round(Random.Range(projectileBurstAmount.x,
                                                  projectileBurstAmount.y));
+
+      Utility.MakeScaleFaceTarget(manager.visuals.transform, Player.Instance.transform);
+        
       for (int i=0; i<shots; i++) {
         Projectile shot = Instantiate(_chosenSource.projectile);
         shot.transform.position = transform.position + Vector3.up * 0.2f;
         shot.direction = (target.transform.position - parent.position).normalized;
+        shot.caster = GetComponentInParent<Npc>().attackable;
         yield return new WaitForSeconds(timeBetweenProjectiles);
       }
       yield return new WaitForSeconds(0.5f);
