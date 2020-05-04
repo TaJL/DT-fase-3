@@ -9,7 +9,7 @@ public class PlayerControl : MonoBehaviour {
   public float maxCameraDistance = 2;
   public Transform visuals;
 
-  Vector3 direction;
+  public Vector3 direction;
 
   void Awake () {
     controlPov = Camera.main.GetComponentInParent<FollowingCamera>().controlPov;

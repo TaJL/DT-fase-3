@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerAttack : MonoBehaviour{
+  public event System.Action onAttack;
+
   public int damage;
   public float pushBackStrength = 5;
   public Transform pushBackSource;
@@ -10,7 +12,8 @@ public class PlayerAttack : MonoBehaviour{
 
   void OnTriggerEnter (Collider c) {
     Attackable attackable = c.GetComponentInParent<Attackable>();
-    if (c.gameObject.activeInHierarchy && attackable) {
+    if (c.gameObject.activeInHierarchy && attackable &&
+        attackable != Player.Instance.attackable) {
       attackable.GetDamage(damage, pushBackSource.position, pushBackStrength);
     }
   }
@@ -21,6 +24,7 @@ public class PlayerAttack : MonoBehaviour{
     if (Input.GetButtonDown("Fire1")) {
       StopAllCoroutines();
       StartCoroutine(_Attack());
+      if (onAttack != null) onAttack();
     }
   }
 

@@ -6,6 +6,8 @@ public class AttackablePlayer : Attackable {
   public static event System.Action onPlayerDead;
   public static event System.Action<AttackablePlayer> onDamageTaken;
 
+  public bool IsInvulnerable { get => cooldown > 0; }
+
   public float invulnerabilityAfterDamage = 0.5f;
   public float cooldown = 0;
   public PlayerControl control;
