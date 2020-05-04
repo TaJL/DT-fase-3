@@ -12,9 +12,9 @@ public class Door : MonoBehaviour
     }
 
     [SerializeField]
-    private Interaction interaction_required;
+    private Interaction interaction_required = Interaction.BARK;
     [SerializeField]
-    private Npc required_boss;
+    private Npc required_boss = null;
 
     [SerializeField, Range(0.1f, 10f)]
     private float area_range = 0;
