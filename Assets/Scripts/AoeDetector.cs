@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class AoeDetector<T> : MonoBehaviour where T: MonoBehaviour {
+  public event System.Action<T> onDetected;
+  public event System.Action<T> onUndetected;
   public T target;
 
   void OnTriggerStay (Collider c) {
@@ -12,6 +14,7 @@ public class AoeDetector<T> : MonoBehaviour where T: MonoBehaviour {
     if (found != target && found) {
       target = found;
       Detect();
+      if (onDetected != null) onDetected(target);
     }
   }
 
@@ -20,6 +23,7 @@ public class AoeDetector<T> : MonoBehaviour where T: MonoBehaviour {
 
     if (c.GetComponentInParent<T>() == target) {
       if (target != null) Undetect(target);
+      if (onUndetected != null) onUndetected(target);
       target = null;
     }
   }
