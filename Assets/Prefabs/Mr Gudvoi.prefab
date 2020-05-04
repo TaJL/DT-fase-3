@@ -240,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1294559909}
   - component: {fileID: 1294559910}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: attack aoe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2347362631633441790}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: aoe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4324384789524464578}
   - component: {fileID: 1768711640952894861}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: attack aoe (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7592642787742244518}
   - component: {fileID: 5423959524367642674}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: attack aoe (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

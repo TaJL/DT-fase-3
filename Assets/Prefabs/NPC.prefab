@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5444102d156913342acfd927907e04d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 2
 --- !u!1 &1287613078
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 6371756103932132438}
   - component: {fileID: 523008842689550775}
   - component: {fileID: 340717550478264439}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: attackable area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,3 +690,5 @@ MonoBehaviour:
   hp: 10
   body: {fileID: 1508303269137507693}
   isDead: 0
+  invulnerabilityAfterDamage: 0.5
+  cooldown: 0

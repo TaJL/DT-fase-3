@@ -7,7 +7,7 @@ public class EnemyDamager : MonoBehaviour {
 
   void OnTriggerEnter (Collider c) {
     Attackable attackable = c.GetComponentInParent<Attackable>();
-    if (attackable && attackable != GetComponentInParent<Attackable>()) {
+    if (attackable && attackable != GetComponentInParent<Npc>().attackable) {
       attackable.GetDamage(damage, transform.position, 0);
     }
   }
