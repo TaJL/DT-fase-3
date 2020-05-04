@@ -13,12 +13,10 @@ public class AttackablePlayer : Attackable {
   public PlayerControl control;
   public int maxHp = 10;
   public int hp = 10;
-  public SpriteRenderer visual;
   public bool isDead = false;
 
   void Update () {
     cooldown -= Time.deltaTime;
-    visual.color = cooldown >= 0? Color.gray: Color.white;
   }
 
   public override void GetDamage (int damage, Vector3 source, float pushBack) {
