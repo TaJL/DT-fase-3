@@ -687,6 +687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22cbc961ac6193740916d57c54262f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 10
   hp: 10
   body: {fileID: 1508303269137507693}
   isDead: 0

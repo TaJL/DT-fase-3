@@ -611,6 +611,7 @@ MonoBehaviour:
   maxHp: 10
   hp: 10
   visual: {fileID: 8120447599418393702}
+  isDead: 0
 --- !u!1 &8120447598912263107
 GameObject:
   m_ObjectHideFlags: 0
