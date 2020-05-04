@@ -326,7 +326,6 @@ Transform:
   - {fileID: 1508303267892392166}
   - {fileID: 8009421095928442319}
   - {fileID: 6371756103932132438}
-  - {fileID: 6406421950866691616}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -483,6 +482,7 @@ GameObject:
   - component: {fileID: 6406421950866691616}
   - component: {fileID: 194709427}
   - component: {fileID: 194709428}
+  - component: {fileID: 194709429}
   m_Layer: 11
   m_Name: agressive npc
   m_TagString: Untagged
@@ -497,14 +497,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8558450398967487150}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1297050548}
   - {fileID: 1287613079}
-  m_Father: {fileID: 1508303269137507695}
-  m_RootOrder: 4
+  m_Father: {fileID: 6371756103932132438}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &194709427
 MonoBehaviour:
@@ -520,6 +520,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   close: {fileID: 1297050549}
   mid: {fileID: 1287613080}
+  ranged: {fileID: 194709429}
+  melee: {fileID: 194709428}
+  meleeCounter: 0
+  rangedCounter: 0
 --- !u!114 &194709428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,19 +531,42 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8558450398967487150}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b5bae3131908b4449353ca4d5392953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  manager: {fileID: 194709427}
+  agent: {fileID: 0}
+  elapsed: 0
   speed: 0
   dashAttackSpeed: 0
-  parent: {fileID: 1508303269137507695}
-  manager: {fileID: 194709427}
   visual: {fileID: 1508303267119615430}
   chargingTime: 0.2
   recoveryTime: 1
+--- !u!114 &194709429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8558450398967487150}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c68d99faa3f4c40bbef9860921c078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  manager: {fileID: 0}
+  agent: {fileID: 0}
+  sources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  projectileBurstAmount: {x: 4, y: 6}
+  timeBetweenProjectiles: 0.25
 --- !u!1 &8811583470325352553
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +595,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6406421950866691616}
   m_Father: {fileID: 1508303269137507695}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
