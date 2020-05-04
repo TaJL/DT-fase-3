@@ -276,11 +276,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: the boss
       objectReference: {fileID: 0}
-    - target: {fileID: 1508303269137507694, guid: d95d7de022b2706479e7e8a2606b3673,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1508303269137507695, guid: d95d7de022b2706479e7e8a2606b3673,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2318,11 +2313,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: anchored camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 2923925426085815817, guid: ce131560c41a291478a7db5483333ca6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce131560c41a291478a7db5483333ca6, type: 3}
