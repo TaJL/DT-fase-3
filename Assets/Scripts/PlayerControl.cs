@@ -13,9 +13,11 @@ public class PlayerControl : MonoBehaviour {
 
   void Awake () {
     controlPov = Camera.main.GetComponentInParent<FollowingCamera>().controlPov;
-    AttackablePlayer.onPlayerDead += () => {
-      this.enabled = false;
-    };
+    AttackablePlayer.onPlayerDead += HandleDeath;
+  }
+
+  void OnDestroy () {
+    AttackablePlayer.onPlayerDead -= HandleDeath;
   }
 
   void FixedUpdate () {
@@ -31,5 +33,9 @@ public class PlayerControl : MonoBehaviour {
           visuals.transform.localScale.z;
       }
     }
+  }
+
+  public void HandleDeath () {
+    Destroy(this);
   }
 }

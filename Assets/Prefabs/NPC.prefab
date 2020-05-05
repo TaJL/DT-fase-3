@@ -611,8 +611,10 @@ MonoBehaviour:
   decision: 0
   actionIndicator: {fileID: 365768450375937339}
   requiredDecision: 1
+  dialogueAoe: {fileID: 1508303267892392161}
   attackable: {fileID: 340717550478264439}
   animController: {fileID: 9100000, guid: 513188e7b417bc24eb82b7426586782a, type: 2}
+  doneTalking: 0
 --- !u!54 &1508303269137507693
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -802,6 +804,8 @@ MonoBehaviour:
   meleeCounter: 0
   rangedCounter: 0
   visuals: {fileID: 576611449}
+  onlyRanged: 0
+  onlyMelee: 0
 --- !u!114 &194709428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,8 +825,11 @@ MonoBehaviour:
   speed: 0
   dashAttackSpeed: 0
   visual: {fileID: 576611449}
-  chargingTime: 0.2
-  recoveryTime: 1
+  chargingTime: 1
+  minimumChargingTime: 0.25
+  recoveryTime: 1.5
+  minimumRecoveryTime: 0.5
+  difficultyStep: 0.05
   damager: {fileID: 733187483}
 --- !u!114 &194709429
 MonoBehaviour:
@@ -846,6 +853,8 @@ MonoBehaviour:
   - {fileID: 0}
   projectileBurstAmount: {x: 4, y: 6}
   timeBetweenProjectiles: 0.25
+  initialRest: 2
+  fallSpeed: 0.1
 --- !u!1 &8811583470325352553
 GameObject:
   m_ObjectHideFlags: 0

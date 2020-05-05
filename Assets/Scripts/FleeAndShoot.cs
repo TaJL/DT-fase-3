@@ -7,6 +7,8 @@ public class FleeAndShoot : AggressiveBehaviour {
   public List<ProjectileSource> sources;
   public Vector2 projectileBurstAmount = new Vector2(4, 6);
   public float timeBetweenProjectiles = 0.25f;
+  public float initialRest = 2;
+  public float fallSpeed = 0.1f;
   ProjectileSource _chosenSource;
 
   void OnEnable () {
@@ -24,11 +26,11 @@ public class FleeAndShoot : AggressiveBehaviour {
   IEnumerator _ArriveAndShoot () {
     while (true) {
       agent.SetDestination(target.transform.position);
-      yield return new WaitForSeconds(0.05f);
+      yield return new WaitForSeconds(0.1f);
       agent.ResetPath();
       ChangeSource();
       yield return StartCoroutine(_WaitForArrival());
-      yield return new WaitForSeconds(0.2f);
+      yield return new WaitForSeconds(0.4f);
 
       int shots = (int) Mathf.Round(Random.Range(projectileBurstAmount.x,
                                                  projectileBurstAmount.y));
@@ -42,7 +44,8 @@ public class FleeAndShoot : AggressiveBehaviour {
         shot.caster = GetComponentInParent<Npc>().attackable;
         yield return new WaitForSeconds(timeBetweenProjectiles);
       }
-      yield return new WaitForSeconds(0.5f);
+      yield return new WaitForSeconds(initialRest);
+      initialRest -= fallSpeed;
 
       if (onFinished != null) onFinished();
     }

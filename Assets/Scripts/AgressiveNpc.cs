@@ -15,21 +15,31 @@ public class AgressiveNpc : MonoBehaviour {
   public int rangedCounter = 0;
 
   public SpriteRenderer visuals;
+  public bool onlyRanged = false;
+  public bool onlyMelee = false;
 
   void Awake () {
     melee.onAttack += () => { meleeCounter++; };
     ranged.onFinished += () => { rangedCounter++; };
-    Events.OnBossDeath += (Npc npc) => {
-      this.enabled = false;
-      ranged.enabled = melee.enabled = false;
-      agent.ResetPath();
-    };
+    Events.OnBossDeath += HandleDeath;
 
-    melee.enabled = Random.Range(0,1f) < 0.5;
-    ranged.enabled = !melee.enabled;
+    if (onlyRanged) {
+      ranged.enabled = true;
+    } else if (onlyMelee) {
+      melee.enabled = true;
+    } else {
+      melee.enabled = Random.Range(0,1f) < 0.5;
+      ranged.enabled = !melee.enabled;
+    }
+  }
+
+  void OnDestroy () {
+    Events.OnBossDeath -= HandleDeath;
   }
 
   void Update () {
+    if (onlyRanged || onlyMelee) return;
+
     if (melee.enabled && (meleeCounter > 3 || melee.elapsed > 5)) {
       SwapBehaviours();
     } else if (ranged.enabled && (rangedCounter > 2)) {
@@ -48,5 +58,11 @@ public class AgressiveNpc : MonoBehaviour {
     ranged.enabled = !ranged.enabled;
     rangedCounter = 0;
     meleeCounter = 0;
+  }
+
+  public void HandleDeath (Npc npc) {
+    this.enabled = false;
+    ranged.enabled = melee.enabled = false;
+    agent.ResetPath();
   }
 }

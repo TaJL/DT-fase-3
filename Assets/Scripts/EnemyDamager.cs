@@ -6,9 +6,11 @@ public class EnemyDamager : MonoBehaviour {
   public int damage;
 
   void Awake () {
-    Events.OnBossDeath += (Npc npc) => {
-      Destroy(gameObject);
-    };
+    Events.OnBossDeath += HandleDeath;
+  }
+
+  void OnDestroy () {
+    Events.OnBossDeath -= HandleDeath;
   }
 
   void OnTriggerEnter (Collider c) {
@@ -16,5 +18,9 @@ public class EnemyDamager : MonoBehaviour {
     if (attackable && attackable != GetComponentInParent<Npc>().attackable) {
       attackable.GetDamage(damage, transform.position, 0);
     }
+  }
+
+  public void HandleDeath (Npc npc) {
+    Destroy(gameObject);
   }
 }

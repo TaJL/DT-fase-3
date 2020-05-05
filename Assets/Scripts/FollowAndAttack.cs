@@ -11,8 +11,14 @@ public class FollowAndAttack : AggressiveBehaviour {
   [HideInInspector]
   public float dashAttackSpeed;
   public SpriteRenderer visual;
-  public float chargingTime = 0.25f;
-  public float recoveryTime = 0.5f;
+
+  public float chargingTime = 0.6f;
+  public float minimumChargingTime = 0.25f;
+
+  public float recoveryTime = 1.5f;
+  public float minimumRecoveryTime = 0.5f;
+
+  public float difficultyStep = 0.1f;
   public EnemyDamager damager;
 
   Coroutine _attack;
@@ -52,6 +58,7 @@ public class FollowAndAttack : AggressiveBehaviour {
     Utility.MakeScaleFaceTarget(visual.transform, Player.Instance.transform);
 
     yield return new WaitForSeconds(chargingTime);
+    chargingTime = Mathf.Max(minimumChargingTime, chargingTime - difficultyStep);
 
     damager.gameObject.SetActive(true);
     visual.color = Color.red;
@@ -68,6 +75,7 @@ public class FollowAndAttack : AggressiveBehaviour {
     damager.gameObject.SetActive(false);
     visual.color = Color.black;
     yield return new WaitForSeconds(recoveryTime);
+    recoveryTime = Mathf.Max(minimumRecoveryTime, recoveryTime-difficultyStep);
     _attack = null;
 
     if (onAttack != null) onAttack();
