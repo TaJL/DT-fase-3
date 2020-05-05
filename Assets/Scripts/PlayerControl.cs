@@ -13,6 +13,9 @@ public class PlayerControl : MonoBehaviour {
 
   void Awake () {
     controlPov = Camera.main.GetComponentInParent<FollowingCamera>().controlPov;
+    AttackablePlayer.onPlayerDead += () => {
+      this.enabled = false;
+    };
   }
 
   void FixedUpdate () {

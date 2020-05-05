@@ -18,7 +18,14 @@ public class PlayerDodge : MonoBehaviour {
 
   Coroutine _dodge;
 
-  void FixedUpdate () {
+  void Awake () {
+    AttackablePlayer.onPlayerDead += () => {
+      this.enabled = false;
+      StopDodging();
+    };
+  }
+
+  void Update () {
     if (PlayerDecisions.isActive || NpcDialoguePlaceholder.Instance.IsVisible) return;
 
     if (Input.GetButtonDown("Fire2") && stamina > 0) {
