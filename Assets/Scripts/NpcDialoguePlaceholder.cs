@@ -36,6 +36,7 @@ public class NpcDialoguePlaceholder : NonPersistantSingleton<NpcDialoguePlacehol
     bool jump = false;
     dialogue.text = "";
     SetTalking(true);
+    animator.SetTrigger(entry.emotion.ToString());
 
     for (int i=0; i<entry.message.Length && !jump;
          i++, jump = Input.GetButtonDown("Fire1")) {

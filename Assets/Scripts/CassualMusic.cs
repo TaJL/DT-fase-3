@@ -11,13 +11,21 @@ public class CassualMusic : MonoBehaviour {
   void OnEnable () {
     initial = music.volume;
 
-    Npc.onFightTriggered += (Npc npc) => {
-      StartCoroutine(_SmoothStop());
-    };
+    Npc.onFightTriggered += HandleFight;
+    BossMusic.onMusicOver += HandleMusicOver;
+  }
 
-    BossMusic.onMusicOver += () => {
-      StartCoroutine(_SmoothStart());
-    };
+  void OnDisable () {
+    Npc.onFightTriggered -= HandleFight;
+    BossMusic.onMusicOver -= HandleMusicOver;
+  }
+
+  public void HandleFight (Npc npc) {
+    StartCoroutine(_SmoothStop());
+  }
+
+  public void HandleMusicOver () {
+    StartCoroutine(_SmoothStart());
   }
 
   IEnumerator _SmoothStop () {

@@ -8,14 +8,17 @@ public class BossMusic : MonoBehaviour {
   public float timeToDecrease = 3;
 
   void OnEnable () {
-    Npc.onFightStarted += (Npc npc) => {
-      music.Play();
-    };
-
-    Events.OnBossDeath += (Npc npc) => {
-      StartCoroutine(_SmoothStop());
-    };
+    Npc.onFightStarted += HandleFightStarted;
+    Events.OnBossDeath += HandleBossDeath;
   }
+
+  void OnDisable () {
+    Npc.onFightStarted -= HandleFightStarted;
+    Events.OnBossDeath -= HandleBossDeath;
+  }
+
+  public void HandleFightStarted (Npc npc) { music.Play(); }
+  public void HandleBossDeath (Npc npc) { StartCoroutine(_SmoothStop()); }
 
   IEnumerator _SmoothStop () {
     float elapsed = 0;

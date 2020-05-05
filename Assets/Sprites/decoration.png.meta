@@ -4,67 +4,67 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -7357054222987373501
-    second: decoration_0
+    second: table
   - first:
       213: 2789606483867609959
-    second: decoration_1
+    second: table2
   - first:
       213: -4984956474573511088
-    second: decoration_2
+    second: table3
   - first:
       213: 2368249734330458438
-    second: decoration_3
+    second: table4
   - first:
       213: -6175063815557865281
-    second: decoration_4
+    second: table5
   - first:
       213: 8837670047554485827
-    second: decoration_5
+    second: chair
   - first:
       213: -3006121933783077635
-    second: decoration_6
+    second: chair2
   - first:
       213: 8686981143430003496
-    second: decoration_7
+    second: paperwork
   - first:
       213: -1897623578847124408
-    second: decoration_8
+    second: pot1
   - first:
       213: 1917232658643970711
-    second: decoration_9
+    second: pot2
   - first:
       213: 6071404885480521493
-    second: decoration_10
+    second: closed book1
   - first:
       213: -4518132169871469295
-    second: decoration_11
+    second: closed book2
   - first:
       213: 7067231153321262439
-    second: decoration_12
+    second: closed book3
   - first:
       213: 5163281058885674151
-    second: decoration_13
+    second: closed book4
   - first:
       213: -8158362117677918120
-    second: decoration_14
+    second: open book1
   - first:
       213: 4845215753868099578
-    second: decoration_15
+    second: open book2
   - first:
       213: -9049183552629733457
-    second: decoration_16
+    second: book shelf
   - first:
       213: -8677544391098958408
-    second: decoration_17
+    second: computer back
   - first:
       213: -5044968134181782344
-    second: decoration_18
+    second: computer front1
   - first:
       213: 2196913667940368297
-    second: decoration_19
+    second: computer front2
   - first:
       213: -8438797928730848463
-    second: decoration_20
+    second: computer front3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -105,7 +105,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -157,445 +157,457 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: decoration_0
+      name: table
       rect:
         serializedVersion: 2
         x: 0
         y: 32
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16d62fd3e13224c438381427ac0bbf60
+      spriteID: de9aac16a4151b74cad2fb44548bc995
       internalID: -7357054222987373501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_1
+      name: table2
       rect:
         serializedVersion: 2
         x: 16
         y: 32
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bab801e730deef8498727800b46ebe40
+      spriteID: 2a137fb843994f248966a2868c10a023
       internalID: 2789606483867609959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_2
+      name: table3
       rect:
         serializedVersion: 2
         x: 32
         y: 32
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee4637ff979dee34fae4431501b45b6f
+      spriteID: 497d68f954b989146ae183a544e39f3e
       internalID: -4984956474573511088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_3
+      name: table4
       rect:
         serializedVersion: 2
         x: 48
         y: 32
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d37655f7232c4b14391c23e34d0e692b
+      spriteID: 845fa6a4b699ca540bcf0c7660a4a0a0
       internalID: 2368249734330458438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_4
+      name: table5
       rect:
         serializedVersion: 2
         x: 64
         y: 32
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cce83bcaa48432943bf90dd820b061fe
+      spriteID: 75e30930a4d70cd4f9669716a3ae811c
       internalID: -6175063815557865281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_5
+      name: chair
       rect:
         serializedVersion: 2
-        x: 80
+        x: 81
         y: 32
-        width: 16
+        width: 15
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a193e16716369e43a8a59fc5822086a
+      spriteID: 8111045b0cd7fb84ea049abc99e738d4
       internalID: 8837670047554485827
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_6
+      name: chair2
       rect:
         serializedVersion: 2
         x: 96
         y: 32
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24146070557606648ad0c7cab6512a84
+      spriteID: c72bc8711cf0f6543ab2c0160b4c16db
       internalID: -3006121933783077635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_7
+      name: paperwork
       rect:
         serializedVersion: 2
         x: 0
         y: 16
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f06793e1bdaa8da44a74c4e84907609c
+      spriteID: a30e2ca315324af41af4df8c2cae1bf4
       internalID: 8686981143430003496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_8
+      name: pot1
       rect:
         serializedVersion: 2
         x: 16
         y: 16
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b943dbbcc3c03f04583193cf34b00019
+      spriteID: 59dccdd438724814989f5a4f126a571e
       internalID: -1897623578847124408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_9
+      name: pot2
       rect:
         serializedVersion: 2
         x: 32
         y: 16
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 989b8b1507ab4984ba545807f068e4d0
+      spriteID: 733a37508eb95a14ca95c146013b1511
       internalID: 1917232658643970711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_10
+      name: closed book1
       rect:
         serializedVersion: 2
         x: 48
         y: 16
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47c273a2b8eb8dc4991e84e0abb5fb0d
+      spriteID: 77b793e31a8305e42b21e5e06bfd5e6b
       internalID: 6071404885480521493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_11
+      name: closed book2
       rect:
         serializedVersion: 2
         x: 64
         y: 16
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c8bc97611a7e6e4eb5d2107af3dbd0e
+      spriteID: f6f13f77fc4df5847a99bc2d35828dbd
       internalID: -4518132169871469295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_12
+      name: closed book3
       rect:
         serializedVersion: 2
         x: 80
         y: 16
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fa8efd6c4a1daa4b8eb12d744d85943
+      spriteID: bf41c7b92fe203549b0ff2c35ff0c08f
       internalID: 7067231153321262439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_13
+      name: closed book4
       rect:
         serializedVersion: 2
         x: 96
         y: 16
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 222b5b86db02d884ca6d5d58c05a802a
+      spriteID: 18060a58b1b8ec147be0d3e321eb2d38
       internalID: 5163281058885674151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_14
+      name: open book1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4861af52468dcd440a9c8179194cadd2
+      spriteID: b415aab54a04f2b48bffcda97bbe3db3
       internalID: -8158362117677918120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_15
+      name: open book2
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a99955dd40b58c4ebdcce65a7e82f2d
+      spriteID: f668d91b6772722438d3be876d140757
       internalID: 4845215753868099578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_16
+      name: book shelf
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fe2f659bb7372545a97ff9c661d3d03
+      spriteID: 28322126ee4c7a64f91151a217e9c2dd
       internalID: -9049183552629733457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_17
+      name: computer back
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d57839ab02bd9b84cbf464bbc0cee38c
+      spriteID: c4d6b3bc493feb445b68da2a5f6ea74a
       internalID: -8677544391098958408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_18
+      name: computer front1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbba508f86ce01e4381dff217d2f3358
+      spriteID: b9cb03e2e4f024b40bd951bf3bd53479
       internalID: -5044968134181782344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_19
+      name: computer front2
       rect:
         serializedVersion: 2
         x: 80
         y: 0
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60f309fb9b3a0fd4baa71f7870c9ebe1
+      spriteID: cd9e0a0e8cb9c90489c472eb15ee478d
       internalID: 2196913667940368297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decoration_20
+      name: computer front3
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e14241779c8222b40aab98914ef4c864
+      spriteID: d6a3334041912a2429caa9b2b5a21e98
       internalID: -8438797928730848463
       vertices: []
       indices: 
