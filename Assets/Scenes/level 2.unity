@@ -255,6 +255,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1762340721}
     m_Modifications:
+    - target: {fileID: 194709427, guid: d95d7de022b2706479e7e8a2606b3673, type: 3}
+      propertyPath: onlyMelee
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 194709429, guid: d95d7de022b2706479e7e8a2606b3673, type: 3}
       propertyPath: sources.Array.data[0]
       value: 
@@ -2967,12 +2971,12 @@ PrefabInstance:
     - target: {fileID: 671577225778905823, guid: 39e2ee73e9a4ace4995b44e6d58fd2b2,
         type: 3}
       propertyPath: maxHp
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 671577225778905823, guid: 39e2ee73e9a4ace4995b44e6d58fd2b2,
         type: 3}
       propertyPath: hp
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 716228210710357450, guid: 39e2ee73e9a4ace4995b44e6d58fd2b2,
         type: 3}

@@ -16,6 +16,7 @@ public class AgressiveNpc : MonoBehaviour {
 
   public SpriteRenderer visuals;
   public bool onlyRanged = false;
+  public bool onlyMelee = false;
 
   void Awake () {
     melee.onAttack += () => { meleeCounter++; };
@@ -24,6 +25,8 @@ public class AgressiveNpc : MonoBehaviour {
 
     if (onlyRanged) {
       ranged.enabled = true;
+    } else if (onlyMelee) {
+      melee.enabled = true;
     } else {
       melee.enabled = Random.Range(0,1f) < 0.5;
       ranged.enabled = !melee.enabled;
@@ -35,7 +38,7 @@ public class AgressiveNpc : MonoBehaviour {
   }
 
   void Update () {
-    if (onlyRanged) return;
+    if (onlyRanged || onlyMelee) return;
 
     if (melee.enabled && (meleeCounter > 3 || melee.elapsed > 5)) {
       SwapBehaviours();
