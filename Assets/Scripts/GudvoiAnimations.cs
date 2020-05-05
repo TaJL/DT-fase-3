@@ -18,6 +18,13 @@ public class GudvoiAnimations : MonoBehaviour {
 
   void OnEnable () {
     attacker.onAttack += HandleAttack;
+    AttackablePlayer.onPlayerDead += () => {
+      animator.SetBool("ded", true);
+    };
+  }
+
+  void OnDisable () {
+    attacker.onAttack -= HandleAttack;
   }
 
   void Update () {

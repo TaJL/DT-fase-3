@@ -19,6 +19,11 @@ public class AgressiveNpc : MonoBehaviour {
   void Awake () {
     melee.onAttack += () => { meleeCounter++; };
     ranged.onFinished += () => { rangedCounter++; };
+    Events.OnBossDeath += (Npc npc) => {
+      this.enabled = false;
+      ranged.enabled = melee.enabled = false;
+      agent.ResetPath();
+    };
 
     melee.enabled = Random.Range(0,1f) < 0.5;
     ranged.enabled = !melee.enabled;

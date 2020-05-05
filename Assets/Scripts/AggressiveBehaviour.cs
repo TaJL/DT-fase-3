@@ -21,6 +21,10 @@ public class AggressiveBehaviour : MonoBehaviour {
     agent = GetComponentInParent<NavMeshAgent>();
     agent.updateRotation = false;
     CustomAwake();
+
+    Events.OnBossDeath += (Npc npc) => {
+      this.enabled = false;
+    };
   }
 
   void OnDisable () {
