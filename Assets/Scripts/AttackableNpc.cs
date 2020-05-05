@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class AttackableNpc : Attackable {
   public static event System.Action<AttackableNpc> onDamageTaken;
 
+  public Animator animator;
   public int maxHp = 10;
   public int hp;
   public Rigidbody body;
@@ -14,13 +15,14 @@ public class AttackableNpc : Attackable {
 
   void OnEnable () {
     hp = maxHp;
-    if (PlayerPrefs.HasKey("npc" + JsonUtility.ToJson(transform.position))) {
-
-    }
+    // if (PlayerPrefs.HasKey("npc" + JsonUtility.ToJson(transform.position))) {
+      
+    // }
   }
 
   void Update () {
     cooldown -= Time.deltaTime;
+    animator.SetBool("invulnerable", cooldown > 0);
   }
 
   public override void GetDamage (int damage, Vector3 source, float pushBack) {
