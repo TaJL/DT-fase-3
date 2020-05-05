@@ -7,6 +7,8 @@ public class FleeAndShoot : AggressiveBehaviour {
   public List<ProjectileSource> sources;
   public Vector2 projectileBurstAmount = new Vector2(4, 6);
   public float timeBetweenProjectiles = 0.25f;
+  public float initialRest = 2;
+  public float fallSpeed = 0.1f;
   ProjectileSource _chosenSource;
 
   void OnEnable () {
@@ -42,7 +44,8 @@ public class FleeAndShoot : AggressiveBehaviour {
         shot.caster = GetComponentInParent<Npc>().attackable;
         yield return new WaitForSeconds(timeBetweenProjectiles);
       }
-      yield return new WaitForSeconds(1.2f);
+      yield return new WaitForSeconds(initialRest);
+      initialRest -= fallSpeed;
 
       if (onFinished != null) onFinished();
     }
