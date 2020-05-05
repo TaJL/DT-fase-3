@@ -11,7 +11,7 @@ public class PlayerAttack : MonoBehaviour{
   public GameObject attackAoe;
 
   void OnTriggerEnter (Collider c) {
-    Attackable attackable = c.GetComponentInParent<Attackable>();
+    Attackable attackable = c.GetComponent<Attackable>();
     if (c.gameObject.activeInHierarchy && attackable &&
         attackable != Player.Instance.attackable) {
       attackable.GetDamage(damage, pushBackSource.position, pushBackStrength);
