@@ -596,6 +596,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e6085cdae1a2c4289de993918869b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fontSize: 60
+  font: {fileID: 12800000, guid: b27e9e6e85f21814e93d8f14ef7524f4, type: 3}
+  requiresDecision: 1
   message:
   - emotion: 0
     message: agsdagfdsfdsg

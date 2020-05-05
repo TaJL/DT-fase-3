@@ -10,7 +10,8 @@ public class Door : MonoBehaviour
     public enum Interaction
     {
         BARK,
-        BOSS_DEFEATH
+        BOSS_DEFEATH,
+        PHONE
     }
 
     [SerializeField]
@@ -48,10 +49,19 @@ public class Door : MonoBehaviour
         //Bindings
         if (interaction_required == Interaction.BARK) {
             Events.OnBark += CheckBark;
-        } else {
+        } else if (interaction_required == Interaction.BOSS_DEFEATH) {
           Events.OnBossDeath += HandleBossDefeat;
+        } else {
+          Events.OnFone += () => {
+            Open();
+          };
         }
     }
+
+  void OnDisable () {
+    Events.OnBark -= CheckBark;
+    Events.OnBossDeath -= HandleBossDefeat;
+  }
 
     public void CheckBark(Vector3 position)
     {
