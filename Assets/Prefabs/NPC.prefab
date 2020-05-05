@@ -612,6 +612,7 @@ MonoBehaviour:
   actionIndicator: {fileID: 365768450375937339}
   requiredDecision: 1
   attackable: {fileID: 340717550478264439}
+  animController: {fileID: 9100000, guid: 513188e7b417bc24eb82b7426586782a, type: 2}
 --- !u!54 &1508303269137507693
 Rigidbody:
   m_ObjectHideFlags: 0

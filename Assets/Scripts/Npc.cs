@@ -27,6 +27,7 @@ public class Npc : MonoBehaviour {
   public Decision requiredDecision;
 
   public AttackableNpc attackable;
+  public RuntimeAnimatorController animController;
 
   bool _stop = false;
   Coroutine _speak;
@@ -75,6 +76,7 @@ public class Npc : MonoBehaviour {
       NpcDialoguePlaceholder.Instance.SetVisibility(true);
     }
 
+    NpcDialoguePlaceholder.Instance.animator.runtimeAnimatorController = animController;
     NpcDialoguePlaceholder.Instance.dialogue.font = font;
     if (fontSize > 0) {
       NpcDialoguePlaceholder.Instance.dialogue.fontSize = fontSize;
@@ -104,7 +106,7 @@ public class Npc : MonoBehaviour {
     this.decision = decision;
     if (onDecisionGiven != null) onDecisionGiven(decision);
     Speak();
-    PlayerPrefs.SetString("npc" + _id, "DONE");
+    // PlayerPrefs.SetString("npc" + _id, "DONE");
   }
 
   IEnumerator _EventuallyStartFighting () {
