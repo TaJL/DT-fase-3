@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Npc : MonoBehaviour {
+  public static event System.Action<Npc> onFightTriggered;
   public event System.Action<Decision> onDecisionGiven;
   public static int counter = 0;
 
@@ -61,10 +62,8 @@ public class Npc : MonoBehaviour {
       NpcDialoguePlaceholder.Instance.SetVisibility(true);
     }
 
-    yield return StartCoroutine(_DisplayMessageLetterByLetter());
-
-    NpcDialoguePlaceholder.Instance.dialogue.text = message[current].message;
-    NpcDialoguePlaceholder.Instance.SetTalking(false);
+    yield return StartCoroutine(NpcDialoguePlaceholder.Instance.
+                                _DisplayMessageLetterByLetter(message[current]));
 
     current++;
     _speak = null;
@@ -76,7 +75,7 @@ public class Npc : MonoBehaviour {
 
   public void HandleDecision (Decision decision, Npc npc) {
     if (requiredDecision != decision) {
-      attackable.gameObject.SetActive(true);
+      StartCoroutine(_EventuallyStartFighting());
     } else {
       if (Events.OnBossDeath != null) Events.OnBossDeath(this);
     }
@@ -109,5 +108,11 @@ public class Npc : MonoBehaviour {
       t.text += message[current].message[i];
       elapsed += Time.deltaTime;
     }
+  }
+
+  IEnumerator _EventuallyStartFighting () {
+    yield return new WaitForSeconds(1);
+
+    attackable.gameObject.SetActive(true);
   }
 }
