@@ -2492,6 +2492,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 971493033, guid: 39e2ee73e9a4ace4995b44e6d58fd2b2, type: 3}
+      propertyPath: stamina
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 8120447598912263105, guid: 39e2ee73e9a4ace4995b44e6d58fd2b2,
         type: 3}
       propertyPath: m_LocalPosition.x

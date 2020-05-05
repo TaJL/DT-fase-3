@@ -14,6 +14,9 @@ public class AttackableNpc : Attackable {
 
   void OnEnable () {
     hp = maxHp;
+    if (PlayerPrefs.HasKey("npc" + JsonUtility.ToJson(transform.position))) {
+
+    }
   }
 
   void Update () {
@@ -27,11 +30,17 @@ public class AttackableNpc : Attackable {
       body.AddForce((transform.position - source).normalized * pushBack, ForceMode.Impulse);
 
       if (hp <= 0) {
-        isDead = true;
-        Events.OnBossDeath(this.GetComponentInParent<Npc>());
+        Die();
       }
 
       if (onDamageTaken != null) onDamageTaken(this);
+      PlayerPrefs.SetString("npc" + JsonUtility.ToJson(transform.position), "ded");
     }
+  }
+
+  public void Die () {
+    hp = 0;
+    isDead = true;
+    Events.OnBossDeath(this.GetComponentInParent<Npc>());
   }
 }

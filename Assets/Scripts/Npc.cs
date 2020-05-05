@@ -21,25 +21,35 @@ public class Npc : MonoBehaviour {
   public DialogueEntry madMessage;
   public const float LECTURE_TIME_PER_WORD = 0.5f;
   public int current = 0;
-  [HideInInspector]
+  // [HideInInspector]
   public Decision decision = Decision.None;
   public GameObject actionIndicator;
   public Decision requiredDecision;
+  public GameObject dialogueAoe;
 
   public AttackableNpc attackable;
   public RuntimeAnimatorController animController;
+  public bool doneTalking = false;
 
   bool _stop = false;
   Coroutine _speak;
-  int _id = -1;
+  string _id;
 
   void OnEnable () {
-    _id = ++counter;
+    _id = (++counter) + (JsonUtility.ToJson(transform.position));
     current = FirstMessage;
+
+    if (HasBeenRead) {
+      decision = (Decision) PlayerPrefs.GetInt("npc" + _id);
+    }
   }
 
   public void Speak () {
-    if (_speak == null) {
+    if (doneTalking) return;
+
+    if (HasBeenRead && _speak == null) {
+      _speak = StartCoroutine(_EventuallyStartFighting());
+    } else if (_speak == null) {
       if (current == 0 && onTalkingStarted != null) onTalkingStarted();
       _speak = StartCoroutine(_Speak());
     }
@@ -106,10 +116,15 @@ public class Npc : MonoBehaviour {
     this.decision = decision;
     if (onDecisionGiven != null) onDecisionGiven(decision);
     Speak();
-    // PlayerPrefs.SetString("npc" + _id, "DONE");
+    PlayerPrefs.SetInt("npc" + _id, (int) decision);
   }
 
   IEnumerator _EventuallyStartFighting () {
+    // dialogueAoe.SetActive(false);
+    actionIndicator.SetActive(false);
+    PlayerDecisions.onDecisionMade -= HandleDecision;
+    if (onDecisionGiven != null) onDecisionGiven(decision);
+
     yield return null;
     if (onFightTriggered != null) onFightTriggered(this);
     yield return StartCoroutine(NpcDialoguePlaceholder.Instance._Say(madMessage));
@@ -120,5 +135,7 @@ public class Npc : MonoBehaviour {
     if (onFightStarted != null) onFightStarted(this);
     yield return new WaitForSeconds(0.25f);
     attackable.gameObject.SetActive(true);
+    _speak = null;
+    doneTalking = true;
   }
 }

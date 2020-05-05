@@ -24,7 +24,7 @@ public class FleeAndShoot : AggressiveBehaviour {
   IEnumerator _ArriveAndShoot () {
     while (true) {
       agent.SetDestination(target.transform.position);
-      yield return new WaitForSeconds(0.05f);
+      yield return new WaitForSeconds(0.1f);
       agent.ResetPath();
       ChangeSource();
       yield return StartCoroutine(_WaitForArrival());

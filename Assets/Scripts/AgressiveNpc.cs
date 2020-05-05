@@ -19,14 +19,14 @@ public class AgressiveNpc : MonoBehaviour {
   void Awake () {
     melee.onAttack += () => { meleeCounter++; };
     ranged.onFinished += () => { rangedCounter++; };
-    Events.OnBossDeath += (Npc npc) => {
-      this.enabled = false;
-      ranged.enabled = melee.enabled = false;
-      agent.ResetPath();
-    };
+    Events.OnBossDeath += HandleDeath;
 
     melee.enabled = Random.Range(0,1f) < 0.5;
     ranged.enabled = !melee.enabled;
+  }
+
+  void OnDestroy () {
+    Events.OnBossDeath -= HandleDeath;
   }
 
   void Update () {
@@ -48,5 +48,11 @@ public class AgressiveNpc : MonoBehaviour {
     ranged.enabled = !ranged.enabled;
     rangedCounter = 0;
     meleeCounter = 0;
+  }
+
+  public void HandleDeath (Npc npc) {
+    this.enabled = false;
+    ranged.enabled = melee.enabled = false;
+    agent.ResetPath();
   }
 }
