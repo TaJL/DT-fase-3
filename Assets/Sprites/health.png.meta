@@ -1,25 +1,13 @@
 fileFormatVersion: 2
-guid: 92b997d73319b8642b45e7360cc11587
+guid: 6082b5c63d5c3ab47af18101f9c9069b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3258026408429179483
-    second: idle1
+      213: -5185649437945853404
+    second: health_0
   - first:
-      213: 2556672549023922855
-    second: idle2
-  - first:
-      213: 3139197862751629003
-    second: walk1
-  - first:
-      213: 3657576310639589270
-    second: walk2
-  - first:
-      213: 8366372975446402084
-    second: walk3
-  - first:
-      213: -1222200870890030862
-    second: damage
+      213: -3447507480621012285
+    second: health_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -63,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,127 +104,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idle1
+      name: health_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 34
-        width: 18
-        height: 17
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a45c38aa6e7eba4cbca97b078bf05ab
-      internalID: -3258026408429179483
+      spriteID: 720e154ca915b0145aaf243179c54e5c
+      internalID: -5185649437945853404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle2
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 34
-        width: 18
-        height: 17
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 92fab937a5126bb40a6004d632acd646
-      internalID: 2556672549023922855
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 17
-        width: 18
-        height: 17
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c9e8d3a2d10951441bacac23a83fc75c
-      internalID: 3139197862751629003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk2
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 17
-        width: 18
-        height: 17
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4031a123f95040841bbe22818c24211a
-      internalID: 3657576310639589270
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk3
+      name: health_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 18
-        height: 17
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfe9b37be45612e4fa8f3a4cc8438547
-      internalID: 8366372975446402084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: damage
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 0
-        width: 18
-        height: 17
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d0347247c2dc892469b8bb931129aa28
-      internalID: -1222200870890030862
+      spriteID: 48af24908827f4449b1c648cb927396c
+      internalID: -3447507480621012285
       vertices: []
       indices: 
       edges: []

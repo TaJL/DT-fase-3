@@ -134,16 +134,11 @@ public class AnyState : State {
 	
 	bool hasExit;
 	
-	// -- //
-	
 	public AnyState(StateMachine stateMachine, string name, EnterState enter, UpdateState update, FixedUpdateState fixedUpdate, ExitState exit)
 		: base(stateMachine, name, enter, update, fixedUpdate, exit)
 	{  }
 	
 	public AnyState Exit(Condition exitCondition) {
-		// TODO si Exit est appelé plus d'une fois, il faudrait remplacer la condition déjà présente
-		
-		// In Update, the first condition to test will be the exit condition
 		hasExit = true;
 		outputStates.Insert(0, new StateOutput() { condition = exitCondition });
 		return this;
@@ -162,14 +157,9 @@ public class StateMachine {
 	public State CurrentState {
 		get { return currentState; }
 	}
-	
-	// -- //
-	
 	State currentState;
 	Dictionary<string, State> states = new Dictionary<string, State>();
 	List<StateOutput> anyStates      = new List<StateOutput>();
-	
-	// -- //
 	
 	public State AddState(string name, EnterState enter = null,
 			UpdateState update = null, FixedUpdateState fixedUpdate = null,
@@ -188,8 +178,8 @@ public class StateMachine {
 	
 	public AnyState AnyState(string name, Condition switchCondition,
 			EnterState enter = null, UpdateState update = null,
-			FixedUpdateState fixedUpdate = null, ExitState exit = null
-	) {
+			FixedUpdateState fixedUpdate = null, ExitState exit = null)
+    {
 		AnyState stateToAdd = GetState(name) as AnyState;
 		
 		if(stateToAdd == null) {
