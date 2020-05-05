@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class FleeAndShoot : AggressiveBehaviour {
   public event System.Action onFinished;
+  public Animator animator;
   public List<ProjectileSource> sources;
   public Vector2 projectileBurstAmount = new Vector2(4, 6);
   public float timeBetweenProjectiles = 0.25f;
@@ -16,6 +17,10 @@ public class FleeAndShoot : AggressiveBehaviour {
     agent.acceleration = agent.speed * 10;
     StopAllCoroutines();
     StartCoroutine(_ArriveAndShoot());
+  }
+
+  void OnDisable () {
+    animator.SetBool("is attacking", false);
   }
 
   public override void CustomOnDisable () {
@@ -31,11 +36,13 @@ public class FleeAndShoot : AggressiveBehaviour {
       ChangeSource();
       yield return StartCoroutine(_WaitForArrival());
       yield return new WaitForSeconds(0.4f);
+      animator.SetBool("is attacking", true);
 
       int shots = (int) Mathf.Round(Random.Range(projectileBurstAmount.x,
                                                  projectileBurstAmount.y));
 
-      Utility.MakeScaleFaceTarget(manager.visuals.transform, Player.Instance.transform);
+      Utility.MakeScaleFaceTarget(manager.visuals.transform.parent,
+                                  Player.Instance.transform);
         
       for (int i=0; i<shots; i++) {
         Projectile shot = Instantiate(_chosenSource.projectile);
@@ -44,6 +51,7 @@ public class FleeAndShoot : AggressiveBehaviour {
         shot.caster = GetComponentInParent<Npc>().attackable;
         yield return new WaitForSeconds(timeBetweenProjectiles);
       }
+      animator.SetBool("is attacking", false);
       yield return new WaitForSeconds(initialRest);
       initialRest -= fallSpeed;
 

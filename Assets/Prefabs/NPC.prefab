@@ -821,6 +821,7 @@ MonoBehaviour:
   target: {fileID: 0}
   manager: {fileID: 194709427}
   agent: {fileID: 0}
+  animator: {fileID: 1658458205}
   elapsed: 0
   speed: 0
   dashAttackSpeed: 0
@@ -846,6 +847,7 @@ MonoBehaviour:
   target: {fileID: 0}
   manager: {fileID: 0}
   agent: {fileID: 0}
+  animator: {fileID: 1658458205}
   sources:
   - {fileID: 0}
   - {fileID: 0}
@@ -913,6 +915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22cbc961ac6193740916d57c54262f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1658458205}
   maxHp: 10
   hp: 10
   body: {fileID: 1508303269137507693}
