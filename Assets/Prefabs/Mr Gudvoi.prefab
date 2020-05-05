@@ -463,7 +463,7 @@ MonoBehaviour:
   speaker: {fileID: 861217223}
   sound: {fileID: 8300000, guid: a529611e90fdcb241be49dfc39dc0f62, type: 3}
   volumeIncrementRange: {x: -0.1, y: 0.3}
-  pitchIncrementRange: {x: -0.15, y: 0.1}
+  pitchIncrementRange: {x: -0.2, y: 0.2}
 --- !u!1 &971493031
 GameObject:
   m_ObjectHideFlags: 0
