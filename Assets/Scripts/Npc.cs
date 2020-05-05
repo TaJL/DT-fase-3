@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class Npc : MonoBehaviour {
   public static event System.Action<Npc> onFightTriggered;
+  public static event System.Action<Npc> onFightStarted;
   public event System.Action<Decision> onDecisionGiven;
   public static int counter = 0;
 
@@ -22,6 +23,7 @@ public class Npc : MonoBehaviour {
 
   public AttackableNpc attackable;
 
+  bool _stop = false;
   Coroutine _speak;
   int _id = -1;
 
@@ -37,7 +39,11 @@ public class Npc : MonoBehaviour {
   }
 
   public void Stop () {
-    StopAllCoroutines();
+    if (decision != Decision.None && decision != requiredDecision) {
+      _stop = true;
+    } else {
+      StopAllCoroutines();
+    }
     _speak = null;
     NpcDialoguePlaceholder.Instance.SetVisibility(false);
     current = FirstMessage;
@@ -89,8 +95,15 @@ public class Npc : MonoBehaviour {
   }
 
   IEnumerator _EventuallyStartFighting () {
-    yield return new WaitForSeconds(1);
-
+    yield return null;
+    if (onFightTriggered != null) onFightTriggered(this);
+    yield return StartCoroutine(NpcDialoguePlaceholder.Instance._Say(madMessage));
+    yield return new WaitUntil(() => {
+        if (Input.GetButtonDown("Fire1")) Stop();
+        return _stop;
+      });
+    if (onFightStarted != null) onFightStarted(this);
+    yield return new WaitForSeconds(0.25f);
     attackable.gameObject.SetActive(true);
   }
 }

@@ -24,7 +24,7 @@ public class NpcDialoguePlaceholder : NonPersistantSingleton<NpcDialoguePlacehol
     StartCoroutine(_Say(entry));
   }
 
-  IEnumerator _Say (DialogueEntry entry) {
+  public IEnumerator _Say (DialogueEntry entry) {
     if (!NpcDialoguePlaceholder.Instance.IsVisible) {
       NpcDialoguePlaceholder.Instance.SetVisibility(true);
     }

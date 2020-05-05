@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class Door : MonoBehaviour
 {
+  public event System.Action onDoorOpen;
+
     public enum Interaction
     {
         BARK,
@@ -85,6 +87,7 @@ public class Door : MonoBehaviour
 
     public void Open()
     {
+      if (onDoorOpen != null) onDoorOpen();
         StopAllCoroutines();
         StartCoroutine(ToggleState(true));
     }
