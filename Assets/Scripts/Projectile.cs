@@ -9,6 +9,12 @@ public class Projectile : MonoBehaviour {
   public float rotationSpeed = 360;
   public Attackable caster;
   public int damage = 1;
+  public Sprite[] available;
+  public SpriteRenderer r;
+
+  void OnEnable () {
+    r.sprite = available[Random.Range(0, available.Length)];
+  }
 
   void OnTriggerEnter (Collider c) {
     Attackable attackable = c.GetComponentInParent<Attackable>();

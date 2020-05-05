@@ -15,14 +15,19 @@ public class AgressiveNpc : MonoBehaviour {
   public int rangedCounter = 0;
 
   public SpriteRenderer visuals;
+  public bool onlyRanged = false;
 
   void Awake () {
     melee.onAttack += () => { meleeCounter++; };
     ranged.onFinished += () => { rangedCounter++; };
     Events.OnBossDeath += HandleDeath;
 
-    melee.enabled = Random.Range(0,1f) < 0.5;
-    ranged.enabled = !melee.enabled;
+    if (onlyRanged) {
+      ranged.enabled = true;
+    } else {
+      melee.enabled = Random.Range(0,1f) < 0.5;
+      ranged.enabled = !melee.enabled;
+    }
   }
 
   void OnDestroy () {
@@ -30,6 +35,8 @@ public class AgressiveNpc : MonoBehaviour {
   }
 
   void Update () {
+    if (onlyRanged) return;
+
     if (melee.enabled && (meleeCounter > 3 || melee.elapsed > 5)) {
       SwapBehaviours();
     } else if (ranged.enabled && (rangedCounter > 2)) {

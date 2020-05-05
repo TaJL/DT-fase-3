@@ -28,7 +28,7 @@ public class FleeAndShoot : AggressiveBehaviour {
       agent.ResetPath();
       ChangeSource();
       yield return StartCoroutine(_WaitForArrival());
-      yield return new WaitForSeconds(0.2f);
+      yield return new WaitForSeconds(0.4f);
 
       int shots = (int) Mathf.Round(Random.Range(projectileBurstAmount.x,
                                                  projectileBurstAmount.y));
@@ -42,7 +42,7 @@ public class FleeAndShoot : AggressiveBehaviour {
         shot.caster = GetComponentInParent<Npc>().attackable;
         yield return new WaitForSeconds(timeBetweenProjectiles);
       }
-      yield return new WaitForSeconds(0.5f);
+      yield return new WaitForSeconds(1.2f);
 
       if (onFinished != null) onFinished();
     }
