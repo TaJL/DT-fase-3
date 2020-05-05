@@ -19,10 +19,11 @@ public class PlayerDodge : MonoBehaviour {
   Coroutine _dodge;
 
   void Awake () {
-    AttackablePlayer.onPlayerDead += () => {
-      this.enabled = false;
-      StopDodging();
-    };
+    AttackablePlayer.onPlayerDead += HandleDeath;
+  }
+
+  void OnDestroy () {
+    AttackablePlayer.onPlayerDead -= HandleDeath;
   }
 
   void Update () {
@@ -32,6 +33,11 @@ public class PlayerDodge : MonoBehaviour {
       StopDodging();
       _dodge = StartCoroutine(_Dodge());
     }
+  }
+
+  public void HandleDeath () {
+    this.enabled = false;
+    StopDodging();
   }
 
   public void StopDodging () {

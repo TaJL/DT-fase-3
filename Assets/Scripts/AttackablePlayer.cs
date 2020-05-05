@@ -27,9 +27,9 @@ public class AttackablePlayer : Attackable {
       if (hp <= 0) {
         isDead = true;
         if (onPlayerDead != null) onPlayerDead();
-      } else {
-        if (onDamageTaken != null) onDamageTaken(this);
       }
+
+      if (onDamageTaken != null) onDamageTaken(this);
     }
   }
 }
