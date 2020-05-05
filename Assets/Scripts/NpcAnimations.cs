@@ -13,6 +13,8 @@ public class NpcAnimations : MonoBehaviour {
   }
 
   void Update () {
-    animator.SetFloat("speed", agent.velocity.magnitude);
+    if (animator.gameObject.activeInHierarchy) {
+      animator.SetFloat("speed", agent.velocity.magnitude);
+    }
   }
 }
