@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerDodge : MonoBehaviour {
+  public bool IsDodgeing { get => _dodge != null; }
   public TrailRenderer trail;
   public Transform initialMotionTarget;
   public Transform motionTarget;

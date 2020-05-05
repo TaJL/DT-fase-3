@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4695573656928016543}
   - component: {fileID: 4695573656928016540}
   - component: {fileID: 4695573656928016542}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,8 @@ MonoBehaviour:
     type: 3}
   speed: 10
   rotationSpeed: 360
+  caster: {fileID: 0}
+  damage: 1
 --- !u!54 &4695573656928016542
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -77,7 +79,7 @@ GameObject:
   - component: {fileID: 4695573657123478792}
   - component: {fileID: 4695573657123478795}
   - component: {fileID: 4695573657123478794}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

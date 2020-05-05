@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -6,11 +7,14 @@ public class AgressiveNpc : MonoBehaviour {
   public EnemyPlayerDetector close;
   public EnemyPlayerDetector mid;
 
+  public NavMeshAgent agent;
   public FleeAndShoot ranged;
   public FollowAndAttack melee;
 
   public int meleeCounter = 0;
   public int rangedCounter = 0;
+
+  public SpriteRenderer visuals;
 
   void Awake () {
     melee.onAttack += () => { meleeCounter++; };
@@ -25,6 +29,12 @@ public class AgressiveNpc : MonoBehaviour {
       SwapBehaviours();
     } else if (ranged.enabled && (rangedCounter > 2)) {
       SwapBehaviours();
+    }
+
+    if (agent.velocity.x != 0) {
+      Vector3 scale = visuals.transform.localScale;
+      scale.x = Mathf.Abs(scale.x) * (agent.velocity.x > 0? 1: -1);
+      visuals.transform.localScale = scale;
     }
   }
 

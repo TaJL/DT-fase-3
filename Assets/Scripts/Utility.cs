@@ -14,4 +14,10 @@ public static class Utility
         return null;
     }
 
+  public static void MakeScaleFaceTarget (Transform thing, Transform target) {
+    Vector3 scale = thing.localScale;
+    scale.x = Mathf.Abs(scale.x) *
+      Mathf.Sign(target.position.x - thing.position.x);
+    thing.localScale = scale;
+  }
 }

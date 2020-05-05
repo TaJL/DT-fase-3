@@ -13,6 +13,7 @@ public class FollowAndAttack : AggressiveBehaviour {
   public SpriteRenderer visual;
   public float chargingTime = 0.25f;
   public float recoveryTime = 0.5f;
+  public EnemyDamager damager;
 
   Coroutine _attack;
 
@@ -26,7 +27,7 @@ public class FollowAndAttack : AggressiveBehaviour {
     elapsed = 0;
   }
 
-  void OnDisable () {
+  public override void CustomOnDisable () {
     StopAttack();
   }
 
@@ -48,9 +49,11 @@ public class FollowAndAttack : AggressiveBehaviour {
   IEnumerator _Attack () {
     Vector3 attackTarget = target.transform.position;
     visual.color = Color.yellow;
+    Utility.MakeScaleFaceTarget(visual.transform, Player.Instance.transform);
 
     yield return new WaitForSeconds(chargingTime);
 
+    damager.gameObject.SetActive(true);
     visual.color = Color.red;
     float requiredTime = Vector3.Distance(parent.position, attackTarget) / dashAttackSpeed;
     float elapsed = 0;
@@ -62,6 +65,7 @@ public class FollowAndAttack : AggressiveBehaviour {
       yield return null;
     }
 
+    damager.gameObject.SetActive(false);
     visual.color = Color.black;
     yield return new WaitForSeconds(recoveryTime);
     _attack = null;

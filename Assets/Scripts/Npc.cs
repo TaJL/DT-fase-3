@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Npc : MonoBehaviour {
+  public static event System.Action<Npc> onFightTriggered;
   public event System.Action<Decision> onDecisionGiven;
   public static int counter = 0;
 
@@ -11,6 +12,7 @@ public class Npc : MonoBehaviour {
   public int FirstMessage { get => HasBeenRead? message.Length-1: 0; }
   public bool WillTalk { get => decision == Decision.None; }
   public DialogueEntry[] message;
+  public DialogueEntry madMessage;
   public const float LECTURE_TIME_PER_WORD = 0.5f;
   public int current = 0;
   [HideInInspector]
@@ -61,10 +63,8 @@ public class Npc : MonoBehaviour {
       NpcDialoguePlaceholder.Instance.SetVisibility(true);
     }
 
-    yield return StartCoroutine(_DisplayMessageLetterByLetter());
-
-    NpcDialoguePlaceholder.Instance.dialogue.text = message[current].message;
-    NpcDialoguePlaceholder.Instance.SetTalking(false);
+    yield return StartCoroutine(NpcDialoguePlaceholder.Instance.
+                                _DisplayMessageLetterByLetter(message[current]));
 
     current++;
     _speak = null;
@@ -76,7 +76,7 @@ public class Npc : MonoBehaviour {
 
   public void HandleDecision (Decision decision, Npc npc) {
     if (requiredDecision != decision) {
-      attackable.gameObject.SetActive(true);
+      StartCoroutine(_EventuallyStartFighting());
     } else {
       if (Events.OnBossDeath != null) Events.OnBossDeath(this);
     }
@@ -88,26 +88,9 @@ public class Npc : MonoBehaviour {
     PlayerPrefs.SetString("npc" + _id, "DONE");
   }
 
-  IEnumerator _DisplayMessageLetterByLetter () {
-    bool jump = false;
-    Text t = NpcDialoguePlaceholder.Instance.dialogue;
-    t.text = "";
-    NpcDialoguePlaceholder.Instance.SetTalking(true);
-    float elapsed = 0;
+  IEnumerator _EventuallyStartFighting () {
+    yield return new WaitForSeconds(1);
 
-    for (int i=0;
-         i<message[current].message.Length && !jump;
-         i++, jump = Input.GetButtonDown("Fire1")) {
-
-      float x = 0;
-      while (x < 0.05f) {
-        yield return null;
-        x += Time.deltaTime;
-        if (Input.GetButtonDown("Fire1")) break;
-      }
-
-      t.text += message[current].message[i];
-      elapsed += Time.deltaTime;
-    }
+    attackable.gameObject.SetActive(true);
   }
 }
