@@ -52,15 +52,14 @@ public class Door : MonoBehaviour
         } else if (interaction_required == Interaction.BOSS_DEFEATH) {
           Events.OnBossDeath += HandleBossDefeat;
         } else {
-          Events.OnFone += () => {
-            Open();
-          };
+          Events.OnFone += Open;
         }
     }
 
   void OnDisable () {
     Events.OnBark -= CheckBark;
     Events.OnBossDeath -= HandleBossDefeat;
+    Events.OnFone -= Open;
   }
 
     public void CheckBark(Vector3 position)
