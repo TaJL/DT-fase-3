@@ -22,14 +22,20 @@ public class AggressiveBehaviour : MonoBehaviour {
     agent.updateRotation = false;
     CustomAwake();
 
-    Events.OnBossDeath += (Npc npc) => {
-      this.enabled = false;
-    };
+    Events.OnBossDeath += HandleDeath;
   }
 
-  void OnDisable () {
+  void OnDestroy () {
     agent.ResetPath();
     CustomOnDisable();
+    Events.OnBossDeath -= HandleDeath;
+  }
+
+  public void HandleDeath (Npc npc) {
+    try {
+      Destroy(this);
+      this.enabled = false;
+    } catch { Debug.Log("error",this); }
   }
 
   public virtual void CustomOnDisable () {}
