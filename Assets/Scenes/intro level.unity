@@ -10006,10 +10006,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 971493033, guid: 39e2ee73e9a4ace4995b44e6d58fd2b2, type: 3}
-      propertyPath: stamina
-      value: 1000000
-      objectReference: {fileID: 0}
     - target: {fileID: 671577225778905823, guid: 39e2ee73e9a4ace4995b44e6d58fd2b2,
         type: 3}
       propertyPath: maxHp

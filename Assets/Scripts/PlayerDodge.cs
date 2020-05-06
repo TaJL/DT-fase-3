@@ -15,6 +15,8 @@ public class PlayerDodge : MonoBehaviour {
   public float stamina = 10;
   public GameObject dust;
   public Transform visual;
+  public float maxStamina = 10;
+  public float staminaSpeed = 4;
 
   Coroutine _dodge;
 
@@ -27,6 +29,9 @@ public class PlayerDodge : MonoBehaviour {
   }
 
   void Update () {
+    stamina += staminaSpeed * Time.deltaTime;
+    stamina = Mathf.Min(maxStamina, stamina);
+
     if (PlayerDecisions.isActive || NpcDialoguePlaceholder.Instance.IsVisible) return;
 
     if (Input.GetButtonDown("Fire2") && stamina > 0) {

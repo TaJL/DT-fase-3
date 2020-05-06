@@ -515,9 +515,11 @@ MonoBehaviour:
   control: {fileID: 8120447598912263106}
   distance: 7
   dodgeDuration: 0.15
-  stamina: 1.5
+  stamina: 0.5
   dust: {fileID: 8316148957608760422, guid: f83e8bfd396b7ee46829f7ab9cfbf39f, type: 3}
   visual: {fileID: 8120447599418393703}
+  maxStamina: 0.5
+  staminaSpeed: 0.3
 --- !u!1 &1294559908
 GameObject:
   m_ObjectHideFlags: 0
