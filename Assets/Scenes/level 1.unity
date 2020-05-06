@@ -259,6 +259,11 @@ PrefabInstance:
       propertyPath: message.Array.data[0].message
       value: agsdagfdsfdsg
       objectReference: {fileID: 0}
+    - target: {fileID: 1508303269137507692, guid: d95d7de022b2706479e7e8a2606b3673,
+        type: 3}
+      propertyPath: requiredDecision
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1508303269137507694, guid: d95d7de022b2706479e7e8a2606b3673,
         type: 3}
       propertyPath: m_Name
