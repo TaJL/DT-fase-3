@@ -199,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613927709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.52}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 971493032}
@@ -245,16 +245,16 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.3
+  m_Time: 0.2
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 1
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.2109375
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -262,17 +262,8 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.22020335
-        value: 0.7638932
-        inSlope: -1.6178179
-        outSlope: -1.6178179
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.44569516
-        value: 0.5192299
+        time: 0.78982663
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -281,7 +272,7 @@ TrailRenderer:
         outWeight: 0
       - serializedVersion: 3
         time: 1
-        value: 0.038461685
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -293,8 +284,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.9529412, g: 0.5764706, b: 0.41568628, a: 0.6666667}
-      key1: {r: 0.49411765, g: 0.34901962, b: 0.3372549, a: 0}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -310,7 +301,7 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 64379
+      atime1: 65535
       atime2: 65535
       atime3: 0
       atime4: 0
@@ -319,7 +310,7 @@ TrailRenderer:
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
+      m_NumAlphaKeys: 2
     numCornerVertices: 3
     numCapVertices: 3
     alignment: 0
@@ -503,7 +494,7 @@ Transform:
   m_Children:
   - {fileID: 613927710}
   m_Father: {fileID: 8120447598912263105}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &971493033
 MonoBehaviour:
@@ -522,11 +513,13 @@ MonoBehaviour:
   motionTarget: {fileID: 107926176}
   player: {fileID: 8120447598912263105}
   control: {fileID: 8120447598912263106}
-  distance: 3
-  dodgeDuration: 0.2
-  stamina: 1.5
+  distance: 7
+  dodgeDuration: 0.15
+  stamina: 0.25
   dust: {fileID: 8316148957608760422, guid: f83e8bfd396b7ee46829f7ab9cfbf39f, type: 3}
   visual: {fileID: 8120447599418393703}
+  maxStamina: 0.25
+  staminaSpeed: 0.15
 --- !u!1 &1294559908
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +627,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8120447598912263105}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7722893518370090774
 MonoBehaviour:
@@ -660,7 +653,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1468157366272313800
 GameObject:
@@ -1023,11 +1016,11 @@ Transform:
   m_LocalPosition: {x: -17.73, y: 0, z: -2.01}
   m_LocalScale: {x: 1, y: 1.4, z: 1}
   m_Children:
-  - {fileID: 971493032}
   - {fileID: 8120447599954399287}
   - {fileID: 8120447599418393703}
   - {fileID: 8120447599411316372}
   - {fileID: 6569909475202279139}
+  - {fileID: 971493032}
   - {fileID: 107926176}
   - {fileID: 6057769468307587750}
   m_Father: {fileID: 0}
@@ -1067,10 +1060,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5666806bac33a444b50878f388a4422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 8
   controlPov: {fileID: 0}
   cameraTarget: {fileID: 8120447599411316372}
-  maxCameraDistance: 0.3
+  maxCameraDistance: 2
   visuals: {fileID: 8120447599418393703}
   direction: {x: 0, y: 0, z: 0}
 --- !u!114 &291544974767699593
@@ -1156,7 +1149,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8120447598912263105}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8120447599418393688
 GameObject:
@@ -1186,7 +1179,7 @@ Transform:
   m_GameObject: {fileID: 8120447599418393688}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.35407, y: 0.35407, z: 0.35407}
   m_Children:
   - {fileID: 6227536374894910278}
   - {fileID: 8763501413004219097}
@@ -1194,7 +1187,7 @@ Transform:
   - {fileID: 137978646}
   - {fileID: 861217221}
   m_Father: {fileID: 8120447598912263105}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1818145350145865754
 Animator:
@@ -1354,7 +1347,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8120447598912263105}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8120447599954399286
 MonoBehaviour:

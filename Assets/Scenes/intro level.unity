@@ -2999,7 +2999,7 @@ PrefabInstance:
     - target: {fileID: 1508303269137507692, guid: d95d7de022b2706479e7e8a2606b3673,
         type: 3}
       propertyPath: message.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1508303269137507692, guid: d95d7de022b2706479e7e8a2606b3673,
         type: 3}
@@ -3085,7 +3085,7 @@ PrefabInstance:
     - target: {fileID: 1508303269137507692, guid: d95d7de022b2706479e7e8a2606b3673,
         type: 3}
       propertyPath: message.Array.data[7].message
-      value: OHBTW use (Z) to openz doorz or soziavilibize to ooman
+      value: OHBTW use SPACE to openz doorz or soziavilibize to ooman
       objectReference: {fileID: 0}
     - target: {fileID: 1508303269137507692, guid: d95d7de022b2706479e7e8a2606b3673,
         type: 3}
@@ -3095,7 +3095,7 @@ PrefabInstance:
     - target: {fileID: 1508303269137507692, guid: d95d7de022b2706479e7e8a2606b3673,
         type: 3}
       propertyPath: message.Array.data[8].message
-      value: me unlokz door naw
+      value: and CTRL to dash
       objectReference: {fileID: 0}
     - target: {fileID: 1508303269137507692, guid: d95d7de022b2706479e7e8a2606b3673,
         type: 3}
@@ -3103,6 +3103,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: e37a11d934e4ec64e9cda756e19ee26d,
         type: 2}
+    - target: {fileID: 1508303269137507692, guid: d95d7de022b2706479e7e8a2606b3673,
+        type: 3}
+      propertyPath: message.Array.data[9].message
+      value: me unlokz door naw
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508303269137507692, guid: d95d7de022b2706479e7e8a2606b3673,
+        type: 3}
+      propertyPath: message.Array.data[8].emotion
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1508303269137507694, guid: d95d7de022b2706479e7e8a2606b3673,
         type: 3}
       propertyPath: m_Name
@@ -4280,7 +4290,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -10006,10 +10016,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 971493033, guid: 39e2ee73e9a4ace4995b44e6d58fd2b2, type: 3}
-      propertyPath: stamina
-      value: 1000000
-      objectReference: {fileID: 0}
     - target: {fileID: 671577225778905823, guid: 39e2ee73e9a4ace4995b44e6d58fd2b2,
         type: 3}
       propertyPath: maxHp
