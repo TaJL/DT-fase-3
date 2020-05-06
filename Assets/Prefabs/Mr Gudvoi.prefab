@@ -995,6 +995,7 @@ GameObject:
   - component: {fileID: 291544974767699593}
   - component: {fileID: 1516012067}
   - component: {fileID: 253582917}
+  - component: {fileID: 2712951366166923319}
   m_Layer: 0
   m_Name: Mr Gudvoi
   m_TagString: Player
@@ -1106,6 +1107,18 @@ MonoBehaviour:
   control: {fileID: 8120447598912263106}
   attacker: {fileID: 1039586346717541898}
   animator: {fileID: 1818145350145865754}
+--- !u!114 &2712951366166923319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120447598912263107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1e78b68b32ae84aa48569c43fe9fde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8120447599411316373
 GameObject:
   m_ObjectHideFlags: 0
