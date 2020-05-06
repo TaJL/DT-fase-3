@@ -234,6 +234,11 @@ PrefabInstance:
       propertyPath: sources.Array.data[3]
       value: 
       objectReference: {fileID: 1425604853}
+    - target: {fileID: 1658458205, guid: d95d7de022b2706479e7e8a2606b3673, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 8ce389649d08c284b99bbd746e996cf8,
+        type: 2}
     - target: {fileID: 1508303267119615430, guid: d95d7de022b2706479e7e8a2606b3673,
         type: 3}
       propertyPath: m_Color.r
