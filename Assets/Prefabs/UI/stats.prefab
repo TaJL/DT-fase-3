@@ -255,6 +255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossHelath: {fileID: 2066759357192917633}
   playerHealth: {fileID: 2538270654895877521}
+  playerStamina: {fileID: 7102821368410029292}
+  dodge: {fileID: 0}
   animator: {fileID: 1421078041}
 --- !u!1001 &6702886215728074141
 PrefabInstance:
